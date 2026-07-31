@@ -38,6 +38,8 @@
   --cor-c:         #a8b9cc;
   --cor-cpp:       #004482;
   --cor-nocode:    #8b5cf6;
+  --cor-cloudflare:#f87930;
+  --cor-csharp:    #9b4f96;
 
   /* Moldura pixelada neutra (SVG 5x5, cantos recortados estilo NES) */
   --moldura-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"><rect x="2" y="1" width="1" height="1" fill="%23767a82"/><rect x="1" y="2" width="1" height="1" fill="%23767a82"/><rect x="3" y="2" width="1" height="1" fill="%23767a82"/><rect x="2" y="3" width="1" height="1" fill="%23767a82"/></svg>');
@@ -341,6 +343,8 @@ header { padding: 3rem 0 2rem; }
 #card-supabase{ --marcha-cor: var(--cor-supabase); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(62, 207, 142, 0.08) 100%); }
 #card-postgres{ --marcha-cor: var(--cor-postgres); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(51, 103, 145, 0.1) 100%); }
 #card-c       { --marcha-cor: var(--cor-c); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(168, 185, 204, 0.08) 100%); }
+#card-cloudflare {--marcha-cor: var(--cor-cloudflare); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(248, 121, 48, 0.08) 100%);}
+#card-csharp  {--marcha-cor: var(--cor-csharp); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(155, 79, 150, 0.1) 100%);}
 #card-cpp     { --marcha-cor: var(--cor-cpp); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(0, 68, 130, 0.12) 100%); }
 #card-nocode  { --marcha-cor: var(--cor-nocode); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(139, 92, 246, 0.08) 100%); }
 
@@ -412,6 +416,8 @@ header { padding: 3rem 0 2rem; }
 .barrinha-html .pixel      { background-color: var(--cor-html); }
 .barrinha-js .pixel        { background-color: var(--cor-js); }
 .barrinha-git .pixel       { background-color: var(--cor-git); }
+.barrinha-cloudflare .pixel {background-color: var(--cor-cloudflare);}
+.barrinha-csharp .pixel {background-color: var(--cor-csharp);}
 
 /* =====================================================
    IDIOMAS
@@ -557,6 +563,145 @@ header { padding: 3rem 0 2rem; }
 }
 @keyframes piscar { 50% { opacity: 0.25; } }
 .status-separador { opacity: 0.4; }
+
+/* =====================================================
+   CARDS CLICÁVEIS — cursor e affordance de "isso abre algo"
+===================================================== */
+.card-habilidade {
+  cursor: pointer;
+}
+.card-habilidade:hover .icone,
+.card-habilidade:focus-visible .icone {
+  animation: bounce-icone 0.5s steps(3) infinite;
+}
+@keyframes bounce-icone {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* =====================================================
+   MODAL DE PROJETOS — abre ao clicar num card de Hard-Skill.
+   Mesmo vocabulário visual do resto do site: pixel-frame,
+   fontes Silkscreen/Space Mono, cor da tech via --marcha-cor.
+===================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  animation: modal-fade-in 0.15s steps(3) forwards;
+}
+@keyframes modal-fade-in { to { opacity: 1; } }
+
+.modal-caixa {
+  background: var(--cor-painel);
+  color: var(--cor-texto);
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  position: relative;
+  transform: scale(0.94) translateY(8px);
+  animation: modal-pop-in 0.18s steps(4) forwards;
+}
+@keyframes modal-pop-in { to { transform: scale(1) translateY(0); } }
+
+.modal-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+.modal-icone { font-size: 1.5rem; }
+.modal-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  color: var(--marcha-cor, var(--python-amarelo));
+}
+.modal-subtitulo {
+  font-size: 0.75rem;
+  color: var(--cor-texto-sec);
+  margin-bottom: 1.1rem;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  background: transparent;
+  border: 2px solid var(--cor-borda-forte);
+  color: var(--cor-texto);
+  font-family: var(--fonte-titulo);
+  font-size: 0.65rem;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-fechar:hover,
+.modal-fechar:focus-visible {
+  background: var(--marcha-cor, var(--python-amarelo));
+  color: #111;
+  outline: none;
+}
+
+.modal-projeto {
+  border: 3px solid #0a0a0a;
+  box-shadow: inset 0 0 0 1px #000;
+  background: var(--cor-fundo-suave);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.9rem;
+}
+.modal-projeto:last-child { margin-bottom: 0; }
+
+.modal-projeto-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  color: var(--cor-texto);
+  margin-bottom: 0.5rem;
+}
+.modal-projeto-desc {
+  font-size: 0.8rem;
+  color: var(--cor-texto-sec);
+  line-height: 1.5;
+  margin-bottom: 0.7rem;
+}
+.modal-projeto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 0.65rem;
+  color: #111;
+  background: var(--marcha-cor, var(--python-amarelo));
+  border: 2px solid #0a0a0a;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+.modal-projeto-link:hover,
+.modal-projeto-link:focus-visible {
+  filter: brightness(1.1);
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.modal-sem-projetos {
+  font-size: 0.8rem;
+  color: var(--cor-texto-sec);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay, .modal-caixa { animation: none; opacity: 1; transform: none; }
+  .card-habilidade:hover .icone, .card-habilidade:focus-visible .icone { animation: none; }
+}
 
 /* =====================================================
    RESPONSIVIDADE

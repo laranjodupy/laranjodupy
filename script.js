@@ -57,6 +57,120 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =====================================================
+// MODAL DE PROJETOS — clique num card de Hard-Skill abre um
+// pop-up listando projetos feitos com aquela tecnologia.
+//
+// COMO ADICIONAR/EDITAR PROJETOS:
+// Edite o objeto PROJETOS_POR_HABILIDADE abaixo. A chave tem
+// que ser igual ao "id" do card no HTML (ex: id="python_card").
+// Cada projeto aceita: nome, descricao, link (texto do botão
+// e URL). Se um card não tiver projetos ainda, deixe a lista
+// vazia [] — o modal mostra uma mensagem de "em breve".
+// =====================================================
+const PROJETOS_POR_HABILIDADE = {
+    'python_card': [
+        {
+            nome: 'Nome do projeto em Python',
+            descricao: 'Troque por uma descrição curta do que o projeto faz, quais bibliotecas usou e qual problema resolve.',
+            linkTexto: 'Ver no GitHub',
+            linkUrl: '#'
+        }
+    ],
+    'card-cpp': [],
+    'card-nocode': [],
+    'card-html': [],
+    'card-js': [],
+    'card-git': [],
+    'card-react': [],
+    'card-supabase': [],
+    'card-postgres': [],
+    'card-c': [],
+    'card-cloudflare': [],
+    'card-csharp': []
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards_habilidade = document.querySelectorAll('.card-habilidade');
+
+    // acessibilidade: cards viram "botões" navegáveis por teclado
+    cards_habilidade.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        const nomeTech = card.querySelector('h3')?.textContent || 'habilidade';
+        card.setAttribute('aria-label', 'Ver projetos de ' + nomeTech);
+    });
+
+    function abrirModalProjetos(card) {
+        const nomeTech = card.querySelector('h3')?.textContent || '';
+        const icone = card.querySelector('.icone')?.textContent || '';
+        const corTech = getComputedStyle(card).getPropertyValue('--marcha-cor');
+        const projetos = PROJETOS_POR_HABILIDADE[card.id] || [];
+
+        const overlay = document.createElement('div');
+        overlay.className = 'modal-overlay';
+
+        const caixa = document.createElement('div');
+        caixa.className = 'modal-caixa pixel-frame';
+        caixa.style.setProperty('--marcha-cor', corTech);
+
+        let projetosHtml = '';
+        if (projetos.length === 0) {
+            projetosHtml = '<p class="modal-sem-projetos">Ainda não adicionei projetos aqui — em breve!</p>';
+        } else {
+            projetosHtml = projetos.map(p => `
+                <div class="modal-projeto">
+                    <p class="modal-projeto-nome">&gt; ${p.nome}</p>
+                    <p class="modal-projeto-desc">${p.descricao}</p>
+                    <a href="${p.linkUrl}" class="modal-projeto-link" target="_blank" rel="noopener noreferrer">${p.linkTexto} ↗</a>
+                </div>
+            `).join('');
+        }
+
+        caixa.innerHTML = `
+            <button class="modal-fechar" aria-label="Fechar">X</button>
+            <div class="modal-cabecalho">
+                <span class="modal-icone">${icone}</span>
+                <h3 class="modal-titulo">${nomeTech}</h3>
+            </div>
+            <p class="modal-subtitulo">Projetos feitos com essa tecnologia</p>
+            ${projetosHtml}
+        `;
+
+        overlay.appendChild(caixa);
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+
+        function fecharModal() {
+            overlay.remove();
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', aoApertarEsc);
+            card.focus();
+        }
+
+        function aoApertarEsc(e) {
+            if (e.key === 'Escape') fecharModal();
+        }
+
+        caixa.querySelector('.modal-fechar').addEventListener('click', fecharModal);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) fecharModal(); });
+        document.addEventListener('keydown', aoApertarEsc);
+
+        // foco vai pro botão de fechar, pra navegação por teclado começar num lugar previsível
+        caixa.querySelector('.modal-fechar').focus();
+    }
+
+    cards_habilidade.forEach(card => {
+        card.addEventListener('click', () => abrirModalProjetos(card));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                abrirModalProjetos(card);
+            }
+        });
+    });
+});
+
+// =====================================================
 // TEMA (escuro / retrô) — persiste em localStorage
 // O <head> já aplica o tema salvo antes do CSS pintar
 // (evita o "flash" do tema errado), aqui é só o toggle.
