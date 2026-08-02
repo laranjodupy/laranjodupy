@@ -71,7 +71,8 @@ class Daniel:
 </p>
 
 <div align="center">
-  <sub><b>Barrinha de vida estilo fliperama — cada bloco é 10% de domínio.</b></sub>
+
+  
 </div>
 
 <table align="center">
@@ -173,8 +174,6 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake.svg" />
   <img alt="cobrinha comendo o gráfico de contribuições" src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" width="100%" />
 </picture>
-
-<sub>⚠️ Essa animação só aparece depois que você configurar o workflow — veja o passo a passo mais abaixo.</sub>
 
 </div>
 
