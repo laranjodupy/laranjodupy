@@ -119,7 +119,7 @@ Lógica de programação orientada a objetos.
 <td width="50%" valign="top">
 
 ### 🌐 Portfólio Pessoal
-**[DanielV_PortfolioWeb](https://github.com/laranjodupy/DanielV_PortfolioWeb)**
+**[Laranjo_Portfolio](https://danielviana-portfolioweb.vercel.app/)**
 
 Portfólio retrô-pixelado construído do zero com HTML, CSS e JavaScript puros — bordas
 pixeladas animadas, barras de progresso estilo RPG e tema inspirado em jogos 8-bit.
