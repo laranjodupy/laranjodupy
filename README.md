@@ -49,7 +49,7 @@ class Daniel:
 
 <br/>
 
-## 🕹️ STATUS BAR — HARD SKILLS
+## HARD SKILLS
 
 <p align="center">
   <img src="https://img.shields.io/badge/PYTHON-F7D51D?style=for-the-badge&logo=python&logoColor=1a1a2e" />
@@ -112,7 +112,7 @@ Lógica de programação orientada a objetos.
 
 <br/>
 
-## 🏆 QUEST LOG — PROJETOS EM DESTAQUE
+## QUEST LOG — PROJETOS EM DESTAQUE
 
 <table align="center">
 <tr>
@@ -165,8 +165,6 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
 
 <br/>
 
-## 🐍 MAPA DE CONTRIBUIÇÕES — `snake.exe`
-
 <div align="center">
 
 <picture>
@@ -179,7 +177,7 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
 
 <br/>
 
-## 📊 HIGH SCORES — GITHUB STATS
+## HIGH SCORES
 
 <div align="center">
 
@@ -194,7 +192,7 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
 
 <br/>
 
-## 🤝 CONTINUE? — VAMOS CONVERSAR
+## CONTATOS
 
 <p align="center">
   <a href="https://github.com/laranjodupy" target="_blank">
