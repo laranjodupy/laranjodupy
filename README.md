@@ -78,25 +78,25 @@ class Daniel:
 <tr>
 <td width="50%">
 
-**PYTHON** `████████░░░` 7/10
-Tratamento de dados, ChatBots e FastAPI (básico).
+**PYTHON** `███████░░░` 7/10
+Tratamento de dados, ChatBots e Computer Vision.
 
 **TYPESCRIPT** `████░░░░░░` 4/10
 Tipagem forte aplicada a projetos React.
 
-**JAVASCRIPT** `██████░░░░` 6/10
+**JAVASCRIPT** `█████░░░░░` 5/10
 Lógica de programação, manipulação DOM.
 
-**REACT.JS** `█████░░░░░░` 5/10
-Componentização, Native, e Expo.
+**REACT.JS** `████░░░░░░` 4/10
+Componentes, hooks e interfaces reativas.
 
 </td>
 <td width="50%">
 
-**SUPABASE** `█████░░░░░` 5/10
+**SUPABASE** `███░░░░░░░` 3/10
 Criação, auth e banco em tempo real.
 
-**POSTGRESQL** `████░░░░░░` 4/10
+**POSTGRESQL** `███░░░░░░░` 3/10
 Banco relacional, queries SQL.
 
 **C++** `██░░░░░░░░` 2/10
@@ -184,8 +184,8 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=laranjodupy&show_icons=true&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&icon_color=6EC1E4&text_color=e6e6e6" alt="Estatísticas do GitHub" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=laranjodupy&layout=compact&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&text_color=e6e6e6&langs_count=8" alt="Linguagens mais usadas" />
+<img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api?username=laranjodupy&show_icons=true&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&icon_color=6EC1E4&text_color=e6e6e6" alt="Estatísticas do GitHub" />
+<img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=laranjodupy&layout=compact&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&text_color=e6e6e6&langs_count=8" alt="Linguagens mais usadas" />
 
 <br/>
 
