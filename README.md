@@ -49,7 +49,7 @@ class Daniel:
 
 <br/>
 
-## 🕹️ STATUS BAR — HARD SKILLS
+## HARD SKILLS
 
 <p align="center">
   <img src="https://img.shields.io/badge/PYTHON-F7D51D?style=for-the-badge&logo=python&logoColor=1a1a2e" />
@@ -71,32 +71,33 @@ class Daniel:
 </p>
 
 <div align="center">
-  <sub><b>Barrinha de vida estilo fliperama — cada bloco é 10% de domínio.</b></sub>
+
+  
 </div>
 
 <table align="center">
 <tr>
 <td width="50%">
 
-**PYTHON** `████████░░░` 7/10
-Tratamento de dados, ChatBots e FastAPI (básico).
+**PYTHON** `███████░░░` 7/10
+Tratamento de dados, ChatBots e Computer Vision.
 
 **TYPESCRIPT** `████░░░░░░` 4/10
 Tipagem forte aplicada a projetos React.
 
-**JAVASCRIPT** `██████░░░░` 6/10
+**JAVASCRIPT** `█████░░░░░` 5/10
 Lógica de programação, manipulação DOM.
 
-**REACT.JS** `█████░░░░░░` 5/10
-Componentização, Native, e Expo.
+**REACT.JS** `████░░░░░░` 4/10
+Componentes, hooks e interfaces reativas.
 
 </td>
 <td width="50%">
 
-**SUPABASE** `█████░░░░░` 5/10
+**SUPABASE** `███░░░░░░░` 3/10
 Criação, auth e banco em tempo real.
 
-**POSTGRESQL** `████░░░░░░` 4/10
+**POSTGRESQL** `███░░░░░░░` 3/10
 Banco relacional, queries SQL.
 
 **C++** `██░░░░░░░░` 2/10
@@ -111,14 +112,14 @@ Lógica de programação orientada a objetos.
 
 <br/>
 
-## 🏆 QUEST LOG — PROJETOS EM DESTAQUE
+## QUEST LOG — PROJETOS EM DESTAQUE
 
 <table align="center">
 <tr>
 <td width="50%" valign="top">
 
 ### 🌐 Portfólio Pessoal
-**[DanielV_PortfolioWeb](https://github.com/laranjodupy/DanielV_PortfolioWeb)**
+**[Laranjo_Portfolio](https://danielviana-portfolioweb.vercel.app/)**
 
 Portfólio retrô-pixelado construído do zero com HTML, CSS e JavaScript puros — bordas
 pixeladas animadas, barras de progresso estilo RPG e tema inspirado em jogos 8-bit.
@@ -164,8 +165,6 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
 
 <br/>
 
-## 🐍 MAPA DE CONTRIBUIÇÕES — `snake.exe`
-
 <div align="center">
 
 <picture>
@@ -174,18 +173,16 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
   <img alt="cobrinha comendo o gráfico de contribuições" src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" width="100%" />
 </picture>
 
-<sub>⚠️ Essa animação só aparece depois que você configurar o workflow — veja o passo a passo mais abaixo.</sub>
-
 </div>
 
 <br/>
 
-## 📊 HIGH SCORES — GITHUB STATS
+## HIGH SCORES
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=laranjodupy&show_icons=true&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&icon_color=6EC1E4&text_color=e6e6e6" alt="Estatísticas do GitHub" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=laranjodupy&layout=compact&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&text_color=e6e6e6&langs_count=8" alt="Linguagens mais usadas" />
+<img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api?username=laranjodupy&show_icons=true&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&icon_color=6EC1E4&text_color=e6e6e6" alt="Estatísticas do GitHub" />
+<img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=laranjodupy&layout=compact&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&text_color=e6e6e6&langs_count=8" alt="Linguagens mais usadas" />
 
 <br/>
 
@@ -195,7 +192,7 @@ Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final 
 
 <br/>
 
-## 🤝 CONTINUE? — VAMOS CONVERSAR
+## CONTATOS
 
 <p align="center">
   <a href="https://github.com/laranjodupy" target="_blank">
