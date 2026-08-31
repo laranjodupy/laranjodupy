@@ -1,0 +1,795 @@
+/* =====================================================
+   VARIÁVEIS GLOBAIS
+   Tema Retrô Python — agora com DOIS temas via [data-tema]
+   Troca em runtime pelo botão da barra de título (script.js)
+===================================================== */
+
+:root {
+  /* ---------- TEMA ESCURO (padrão) ---------- */
+  --cor-fundo:        #141416;
+  --cor-fundo-suave:  #1f2023;
+  --cor-painel:       #232428;
+
+  --cor-texto:        #e6e6e6;
+  --cor-texto-sec:    #9ca3af;
+
+  --python-azul:      #306998;
+  --python-amarelo:   #FFD43B;
+
+  --cor-borda:        #3a3a3a;
+  --cor-borda-forte:  #55565c;
+  --sombra-cor:       #000000;
+
+  --acento-texto:       #FFD43B;
+  --badge-azul-texto:   #7ec8e3;
+  --badge-azul-fundo:   rgba(48, 105, 152, 0.25);
+  --badge-azul-borda:   #306998;
+  --badge-amarelo-texto:#FFD43B;
+  --badge-amarelo-fundo:rgba(255, 212, 59, 0.15);
+  --badge-amarelo-borda:#FFD43B;
+
+  /* Cores das tecnologias — não mudam entre temas, são marcas próprias */
+  --cor-html:      #e44d26;
+  --cor-js:        #f7df1e;
+  --cor-git:       #f05032;
+  --cor-react:     #61dafb;
+  --cor-supabase:  #3ecf8e;
+  --cor-postgres:  #336791;
+  --cor-c:         #a8b9cc;
+  --cor-cpp:       #004482;
+  --cor-nocode:    #8b5cf6;
+  --cor-cloudflare:#f87930;
+  --cor-csharp:    #9b4f96;
+
+  /* Moldura pixelada neutra (SVG 5x5, cantos recortados estilo NES) */
+  --moldura-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"><rect x="2" y="1" width="1" height="1" fill="%23767a82"/><rect x="1" y="2" width="1" height="1" fill="%23767a82"/><rect x="3" y="2" width="1" height="1" fill="%23767a82"/><rect x="2" y="3" width="1" height="1" fill="%23767a82"/></svg>');
+
+  --fonte-titulo:  'Silkscreen', monospace;
+  --fonte-corpo:   'Space Mono', monospace;
+
+  --largura-max:   800px;
+  --espacamento:   2.5rem;
+}
+
+/* ---------- TEMA RETRÔ (cinza claro, estilo SO antigo) ---------- */
+[data-tema="retro"] {
+  --cor-fundo:        #c7cac4;
+  --cor-fundo-suave:  #dcded8;
+  --cor-painel:       #eef0ea;
+
+  --cor-texto:        #1b1c1a;
+  --cor-texto-sec:    #4a4b46;
+
+  --cor-borda:        #8b8d86;
+  --cor-borda-forte:  #5b5c57;
+  --sombra-cor:       #4a4b46;
+
+  --acento-texto:        #7a5900;
+  --badge-azul-texto:    #12314a;
+  --badge-azul-fundo:    rgba(36, 88, 128, 0.18);
+  --badge-azul-borda:    #245880;
+  --badge-amarelo-texto: #7a5900;
+  --badge-amarelo-fundo: rgba(184, 134, 11, 0.20);
+  --badge-amarelo-borda: #7a5900;
+}
+
+/* =====================================================
+   RESET BÁSICO
+===================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { cursor: url('componentes/cursorpy.png'), auto; }
+a:hover, button:hover, .card-habilidade:hover {
+  cursor: url('componentes/cursorpy.png'), auto;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color 0.15s steps(1), color 0.15s steps(1);
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+/* =====================================================
+   JANELA — moldura de "sistema operacional retrô"
+===================================================== */
+.janela {
+  max-width: 900px;
+  margin: 2rem auto;
+  border: 3px solid #0a0a0a;
+  box-shadow: 0 0 0 1px var(--cor-borda-forte), 6px 6px 0 var(--sombra-cor);
+  background: var(--cor-fundo);
+}
+
+.janela-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  background: #1c4460;
+  color: #f5f5f5;
+  border-bottom: 3px solid #0a0a0a;
+  font-family: var(--fonte-titulo);
+  font-size: 0.7rem;
+}
+
+.janela-barra-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.janela-icone { font-size: 0.9rem; }
+
+.janela-barra-acoes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.janela-btn {
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  background: #d9d9d9;
+  color: #111;
+  border: 2px solid #0a0a0a;
+  font-family: var(--fonte-corpo);
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: default;
+}
+.janela-btn-fechar { cursor: pointer; }
+.janela-btn-fechar:hover { background: #e0554f; color: #fff; }
+
+.tema-toggle {
+  height: 20px;
+  display: flex; align-items: center;
+  background: var(--python-amarelo);
+  color: #111;
+  border: 2px solid #0a0a0a;
+  font-family: var(--fonte-titulo);
+  font-size: 0.55rem;
+  letter-spacing: 0.03em;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.tema-toggle:hover { background: #fff; }
+
+.janela-corpo { background: var(--cor-fundo); }
+
+@media (max-width: 620px) {
+  .janela { margin: 0; border-left: none; border-right: none; box-shadow: none; max-width: 100%; }
+  .janela-barra-titulo span:last-child { font-size: 0.6rem; }
+}
+
+/* =====================================================
+   BOOT SCREEN (criado via JS, estilos ficam prontos aqui)
+===================================================== */
+#boot-screen {
+  position: fixed; inset: 0;
+  background: #000;
+  color: #3ddc70;
+  font-family: var(--fonte-corpo);
+  font-size: 0.85rem;
+  z-index: 9999;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+.boot-linha { opacity: 0; animation: boot-fade 0.2s steps(1) forwards; margin-bottom: 0.3rem; }
+.boot-barra-wrap { margin-top: 1rem; border: 2px solid #3ddc70; padding: 2px; width: 100%; max-width: 320px; }
+.boot-barra { height: 10px; background: #3ddc70; width: 0%; animation: boot-progresso 1.6s steps(20) forwards; }
+.boot-dica { margin-top: 1.5rem; font-size: 0.65rem; color: #2a8f52; }
+@keyframes boot-fade { to { opacity: 1; } }
+@keyframes boot-progresso { to { width: 100%; } }
+#boot-screen.boot-saindo { animation: boot-saida 0.25s steps(3) forwards; }
+@keyframes boot-saida { to { opacity: 0; visibility: hidden; } }
+
+/* =====================================================
+   CONTAINER CENTRAL
+===================================================== */
+.container {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.divisor { border: none; border-top: 1px dashed var(--cor-borda); margin: var(--espacamento) 0; }
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+header { padding: 3rem 0 2rem; }
+
+.header-top { margin-bottom: 1.5rem; font-size: 0.8rem; color: var(--python-azul); letter-spacing: 0.1em; }
+
+.borda-animada {
+  padding: 12px;
+  height: fit-content; width: fit-content;
+  border: 1px solid #0000;
+  background: linear-gradient(var(--cor-fundo), var(--cor-fundo)) padding-box,
+              linear-gradient(var(--angle), #070707, var(--python-amarelo)) border-box;
+  animation: rotate 8s linear infinite;
+}
+@keyframes rotate { to { --angle: 360deg; } }
+@property --angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  color: var(--cor-texto);
+}
+
+.cargo { font-size: 0.9rem; color: var(--cor-texto-sec); letter-spacing: 0.02em; }
+.cargo em { font-style: normal; font-weight: 700; color: var(--acento-texto); }
+
+/* =====================================================
+   TÍTULOS DE SEÇÃO
+===================================================== */
+.secao-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+  color: var(--cor-texto);
+}
+.secao-subtitulo { font-size: 0.78rem; color: var(--cor-texto-sec); margin-bottom: 1.2rem; }
+.secao-nota { font-size: 0.7rem; color: var(--cor-texto-sec); margin-top: 1rem; font-style: italic; }
+
+.sobre p { color: var(--cor-texto-sec); font-size: 0.95rem; max-width: 65ch; }
+
+/* =====================================================
+   SISTEMA DE MOLDURA PIXELADA (o pedido principal)
+   .pixel-frame = borda recortada (border-image) sempre visível,
+   neutra em qualquer tema, + uma camada de pixels que "marcham"
+   ao redor no hover/focus usando a cor de --marcha-cor.
+
+   Isso sozinho NÃO empurra o elemento (sem transform/shadow) —
+   é só o efeito de pixel. O "pop" 8-bit (translate + sombra
+   sólida) é uma camada extra, .clicavel, aplicada só nos
+   elementos que realmente fazem algo ao clicar (cards de
+   hard-skill, certificados, botão de download). Itens
+   informativos (idiomas, formações, soft-skills) usam só a
+   moldura pixelada, sem sobressaltar.
+===================================================== */
+.pixel-frame {
+  --marcha-cor: var(--python-amarelo);
+  position: relative;
+  border-style: solid;
+  border-width: 5px;
+  border-image-slice: 2;
+  border-image-repeat: stretch;
+  border-image-source: var(--moldura-svg);
+  image-rendering: pixelated;
+}
+
+.pixel-frame::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  pointer-events: none;
+  opacity: 0;
+  background-image:
+    linear-gradient(90deg, var(--marcha-cor) 50%, transparent 50%),
+    linear-gradient(90deg, var(--marcha-cor) 50%, transparent 50%),
+    linear-gradient(0deg,  var(--marcha-cor) 50%, transparent 50%),
+    linear-gradient(0deg,  var(--marcha-cor) 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 8px 3px, 8px 3px, 3px 8px, 3px 8px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  animation: marchar 0.7s steps(4) infinite;
+  animation-play-state: paused;
+  transition: opacity 0.1s steps(1);
+}
+
+.pixel-frame:hover::before,
+.pixel-frame:focus-visible::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* só nos elementos clicáveis: o "pop" 8-bit (empurra + sombra sólida) */
+.pixel-frame.clicavel {
+  transition: transform 0.12s steps(2);
+}
+.pixel-frame.clicavel:hover,
+.pixel-frame.clicavel:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0 var(--marcha-cor);
+  outline: none;
+}
+
+@keyframes marchar {
+  to { background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-frame::before { animation: none; }
+  .pixel-frame:hover::before, .pixel-frame:focus-visible::before { opacity: 0.9; }
+}
+
+/* =====================================================
+   HABILIDADES
+===================================================== */
+.habilidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.4rem 1rem;
+}
+
+.card-habilidade {
+  background-color: var(--cor-fundo-suave);
+  padding: 1.25rem 1rem;
+  position: relative;
+  /* espaço reservado embaixo pra barrinha não sobrepor o texto */
+  padding-bottom: 2.75rem;
+  min-height: 9.5rem;
+}
+
+#python_card  { background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(48, 105, 152, 0.12) 100%); }
+#card-html    { --marcha-cor: var(--cor-html); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(228, 77, 38, 0.08) 100%); }
+#card-js      { --marcha-cor: var(--cor-js); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(247, 223, 30, 0.08) 100%); }
+#card-git     { --marcha-cor: var(--cor-git); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(240, 80, 50, 0.08) 100%); }
+#card-react   { --marcha-cor: var(--cor-react); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(97, 218, 251, 0.08) 100%); }
+#card-supabase{ --marcha-cor: var(--cor-supabase); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(62, 207, 142, 0.08) 100%); }
+#card-postgres{ --marcha-cor: var(--cor-postgres); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(51, 103, 145, 0.1) 100%); }
+#card-c       { --marcha-cor: var(--cor-c); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(168, 185, 204, 0.08) 100%); }
+#card-cloudflare {--marcha-cor: var(--cor-cloudflare); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(248, 121, 48, 0.08) 100%);}
+#card-csharp  {--marcha-cor: var(--cor-csharp); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(155, 79, 150, 0.1) 100%);}
+#card-cpp     { --marcha-cor: var(--cor-cpp); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(0, 68, 130, 0.12) 100%); }
+#card-nocode  { --marcha-cor: var(--cor-nocode); background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(139, 92, 246, 0.08) 100%); }
+
+.card-habilidade .icone {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.6rem;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+.card-habilidade h3 { font-family: var(--fonte-titulo); font-size: 0.85rem; margin-bottom: 0.3rem; color: var(--cor-texto); }
+.card-habilidade p { font-size: 0.8rem; color: var(--cor-texto-sec); line-height: 1.4; }
+
+/* =====================================================
+   BARRINHA DE CONHECIMENTO (agora com cara de barra de vida)
+===================================================== */
+.container-barrinha {
+  width: calc(100% - 2rem);
+  max-width: 320px;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+}
+
+.barrinha-conhecimento {
+  --cor-cheio: var(--python-amarelo);
+  --cor-vazio: var(--cor-fundo);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 2px;
+  padding: 3px;
+  width: 100%;
+  aspect-ratio: 10 / 1;
+  margin-top: 10px;
+  border: 3px solid #0a0a0a;
+  box-shadow: inset 0 0 0 1px #000, 0 0 0 1px var(--cor-borda-forte);
+  background-color: var(--cor-vazio);
+}
+
+.pixel {
+  width: 100%; height: 100%;
+  background-color: var(--cor-cheio);
+  position: relative;
+  /* começa "apagado" — a barra ainda não andou até aqui */
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  transition: transform 0.1s steps(2), opacity 0.05s linear;
+}
+.pixel::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 30%;
+  background: rgba(255,255,255,0.35);
+}
+
+/* quando o card entra na tela, cada pixel acende em sequência
+   (delay calculado via JS na custom property --i) */
+.barrinha-ativa .pixel {
+  transform: scaleX(1);
+  opacity: 1;
+  transition-delay: calc(var(--i) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel { transition: none; transform: scaleX(1); opacity: 1; }
+}
+
+.barrinha-react .pixel     { background-color: var(--cor-react); }
+.barrinha-supabase .pixel  { background-color: var(--cor-supabase); }
+.barrinha-postgres .pixel  { background-color: var(--cor-postgres); }
+.barrinha-c .pixel         { background-color: var(--cor-c); }
+.barrinha-cpp .pixel       { background-color: var(--cor-cpp); }
+.barrinha-nocode .pixel    { background-color: var(--cor-nocode); }
+.barrinha-html .pixel      { background-color: var(--cor-html); }
+.barrinha-js .pixel        { background-color: var(--cor-js); }
+.barrinha-git .pixel       { background-color: var(--cor-git); }
+.barrinha-cloudflare .pixel {background-color: var(--cor-cloudflare);}
+.barrinha-csharp .pixel {background-color: var(--cor-csharp);}
+
+/* =====================================================
+   IDIOMAS
+===================================================== */
+.idiomas-lista { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+
+.idioma-item {
+  display: flex; align-items: center; gap: 0.9rem;
+  background-color: var(--cor-fundo-suave);
+  padding: 0.65rem 1rem;
+  max-width: 360px;
+  cursor: default;
+}
+
+.idioma-bandeira { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+.idioma-info { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.idioma-nome { font-family: var(--fonte-titulo); font-size: 0.8rem; color: var(--cor-texto); }
+
+.idioma-nivel { font-size: 0.72rem; font-family: var(--fonte-corpo); padding: 2px 8px; border-radius: 0; font-weight: 700; letter-spacing: 0.04em; border: 1px solid; }
+.nivel-nativo        { background-color: var(--badge-azul-fundo);    color: var(--badge-azul-texto);    border-color: var(--badge-azul-borda); }
+.nivel-intermediario { background-color: var(--badge-amarelo-fundo); color: var(--badge-amarelo-texto); border-color: var(--badge-amarelo-borda); }
+.nivel-basico        { background-color: rgba(156, 163, 175, 0.15);  color: var(--cor-texto-sec);       border-color: var(--cor-texto-sec); }
+
+/* =====================================================
+   FORMAÇÕES
+===================================================== */
+.formacoes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem; }
+
+.card-formacao {
+  --marcha-cor: var(--python-azul);
+  background-color: var(--cor-fundo-suave);
+  padding: 1.25rem 1.1rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
+  cursor: default;
+}
+
+.formacao-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem; }
+.formacao-icone { font-size: 1.4rem; line-height: 1; }
+
+.formacao-status { font-size: 0.7rem; font-family: var(--fonte-corpo); font-weight: 700; padding: 2px 8px; letter-spacing: 0.04em; border: 1px solid; }
+.status-andamento { background-color: var(--badge-amarelo-fundo); color: var(--badge-amarelo-texto); border-color: var(--badge-amarelo-borda); }
+.status-concluido { background-color: var(--badge-azul-fundo);    color: var(--badge-azul-texto);    border-color: var(--badge-azul-borda); }
+
+.formacao-curso { font-family: var(--fonte-titulo); font-size: 0.82rem; color: var(--cor-texto); line-height: 1.4; }
+.formacao-instituicao { font-size: 0.8rem; color: var(--python-azul); font-weight: 700; font-family: var(--fonte-titulo); }
+.formacao-periodo { font-size: 0.75rem; color: var(--cor-texto-sec); font-style: italic; }
+.formacao-desc { font-size: 0.78rem; color: var(--cor-texto-sec); line-height: 1.5; margin-top: 0.2rem; }
+
+/* =====================================================
+   SOFT SKILLS
+===================================================== */
+.softskills-lista { list-style: none; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+.softskill-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  background-color: var(--cor-fundo-suave);
+  padding: 0.5rem 0.9rem;
+  font-family: var(--fonte-corpo); font-size: 0.82rem; color: var(--cor-texto-sec);
+  cursor: default;
+}
+.softskill-item:hover { color: var(--cor-texto); }
+.sskill-icone { font-size: 1rem; line-height: 1; }
+
+/* =====================================================
+   EXPERIÊNCIAS
+===================================================== */
+.experiencias-lista { list-style: none; display: flex; flex-direction: column; gap: 2rem; }
+.experiencia-item { display: grid; grid-template-columns: 100px 1fr; gap: 0 1.5rem; }
+.exp-data { font-size: 0.8rem; color: var(--python-azul); padding-top: 4px; text-align: right; font-family: var(--fonte-titulo); }
+.exp-conteudo { border-left: 2px solid var(--cor-borda); padding-left: 1.25rem; position: relative; }
+.exp-conteudo::before {
+  content: ''; position: absolute; left: -6px; top: 8px;
+  width: 10px; height: 10px;
+  background-color: var(--cor-fundo);
+  border: 2px solid var(--acento-texto);
+}
+.exp-cargo { font-size: 1rem; font-weight: 700; color: var(--cor-texto); margin-bottom: 0.2rem; }
+.exp-empresa { font-size: 0.85rem; color: var(--cor-texto-sec); margin-bottom: 0.5rem; display: block; font-style: italic; }
+.exp-descricao { font-size: 0.9rem; color: var(--cor-texto-sec); line-height: 1.6; }
+
+/* =====================================================
+   CONTATO
+===================================================== */
+.contato-lista { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.contato-lista li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; }
+.contato-lista .rotulo { font-size: 0.8rem; color: var(--python-azul); width: 70px; flex-shrink: 0; font-weight: 700; font-family: var(--fonte-titulo); text-align: right; }
+.contato-lista a { color: var(--cor-texto); text-decoration: none; border-bottom: 1px dashed var(--cor-borda); padding-bottom: 2px; transition: all 0.15s steps(1); margin-left: 20px; }
+.contato-lista a:hover { color: var(--acento-texto); border-bottom-color: var(--acento-texto); padding-left: 4px; }
+
+/* =====================================================
+   ANIMAÇÕES DE ENTRADA
+===================================================== */
+.fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+.fade-section.visible { opacity: 1; transform: translateY(0); }
+
+/* =====================================================
+   CURRÍCULO
+===================================================== */
+.curriculo-desc { font-size: 0.9rem; color: var(--cor-texto-sec); margin-bottom: 1.25rem; }
+
+.btn-download {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background-color: var(--cor-fundo-suave);
+  color: var(--acento-texto);
+  padding: 0.6rem 1.4rem;
+  font-family: var(--fonte-titulo); font-size: 0.8rem;
+  text-decoration: none; letter-spacing: 0.05em;
+  transition: background-color 0.1s steps(1), color 0.1s steps(1);
+}
+.btn-download:hover { background-color: var(--python-amarelo); color: #111; }
+.btn-icone { font-style: normal; }
+
+/* =====================================================
+   MARQUEE (faixa de arcade)
+===================================================== */
+.marquee {
+  font-family: var(--fonte-titulo);
+  font-size: 0.55rem;
+  color: #111;
+  background-color: var(--python-amarelo);
+  padding: 5px 0;
+  margin-top: 1.8rem;
+  border-top: 3px solid #0a0a0a;
+  border-bottom: 3px solid #0a0a0a;
+}
+
+/* =====================================================
+   BARRA DE STATUS (rodapé estilo taskbar)
+===================================================== */
+.barra-status {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  font-size: 0.7rem;
+  color: var(--cor-texto-sec);
+  border-top: 3px solid #0a0a0a;
+  background-color: var(--cor-fundo-suave);
+}
+.status-led {
+  width: 8px; height: 8px;
+  background: #3ddc70;
+  box-shadow: 0 0 4px #3ddc70;
+  display: inline-block;
+  animation: piscar 1.6s steps(2) infinite;
+}
+@keyframes piscar { 50% { opacity: 0.25; } }
+.status-separador { opacity: 0.4; }
+
+/* =====================================================
+   CARDS CLICÁVEIS — cursor e affordance de "isso abre algo"
+===================================================== */
+.card-habilidade {
+  cursor: pointer;
+}
+.card-habilidade:hover .icone,
+.card-habilidade:focus-visible .icone {
+  animation: bounce-icone 0.5s steps(3) infinite;
+}
+@keyframes bounce-icone {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* =====================================================
+   MODAL DE PROJETOS — abre ao clicar num card de Hard-Skill.
+   Mesmo vocabulário visual do resto do site: pixel-frame,
+   fontes Silkscreen/Space Mono, cor da tech via --marcha-cor.
+===================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  animation: modal-fade-in 0.15s steps(3) forwards;
+}
+@keyframes modal-fade-in { to { opacity: 1; } }
+
+.modal-caixa {
+  background: var(--cor-painel);
+  color: var(--cor-texto);
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  position: relative;
+  transform: scale(0.94) translateY(8px);
+  animation: modal-pop-in 0.18s steps(4) forwards;
+}
+@keyframes modal-pop-in { to { transform: scale(1) translateY(0); } }
+
+.modal-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+.modal-icone { font-size: 1.5rem; }
+.modal-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  color: var(--marcha-cor, var(--python-amarelo));
+}
+.modal-subtitulo {
+  font-size: 0.75rem;
+  color: var(--cor-texto-sec);
+  margin-bottom: 1.1rem;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  background: transparent;
+  border: 2px solid var(--cor-borda-forte);
+  color: var(--cor-texto);
+  font-family: var(--fonte-titulo);
+  font-size: 0.65rem;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-fechar:hover,
+.modal-fechar:focus-visible {
+  background: var(--marcha-cor, var(--python-amarelo));
+  color: #111;
+  outline: none;
+}
+
+.modal-projeto {
+  border: 3px solid #0a0a0a;
+  box-shadow: inset 0 0 0 1px #000;
+  background: var(--cor-fundo-suave);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.9rem;
+}
+.modal-projeto:last-child { margin-bottom: 0; }
+
+.modal-projeto-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  color: var(--cor-texto);
+  margin-bottom: 0.5rem;
+}
+.modal-projeto-desc {
+  font-size: 0.8rem;
+  color: var(--cor-texto-sec);
+  line-height: 1.5;
+  margin-bottom: 0.7rem;
+}
+.modal-projeto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 0.65rem;
+  color: #111;
+  background: var(--marcha-cor, var(--python-amarelo));
+  border: 2px solid #0a0a0a;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+.modal-projeto-link:hover,
+.modal-projeto-link:focus-visible {
+  filter: brightness(1.1);
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.modal-sem-projetos {
+  font-size: 0.8rem;
+  color: var(--cor-texto-sec);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay, .modal-caixa { animation: none; opacity: 1; transform: none; }
+  .card-habilidade:hover .icone, .card-habilidade:focus-visible .icone { animation: none; }
+}
+
+/* =====================================================
+   CERTIFICADOS — grid de cards clicáveis; abre um lightbox
+   (mesmo .modal-overlay/.modal-caixa dos projetos, só que
+   maior e com imagem) mostrando o certificado em tamanho
+   completo e a legenda explicando o que ele cobre.
+===================================================== */
+.certificados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+
+.card-certificado {
+  background-color: var(--cor-fundo-suave);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+}
+
+.certificado-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-bottom: 3px solid #0a0a0a;
+}
+
+.certificado-info { padding: 0.9rem 1rem 1.1rem; }
+.certificado-info h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 0.78rem;
+  color: var(--cor-texto);
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+.certificado-emissor { font-size: 0.72rem; color: var(--cor-texto-sec); }
+
+.modal-caixa-certificado { max-width: 620px; }
+.modal-cert-imagem {
+  display: block;
+  width: 100%;
+  border: 3px solid #0a0a0a;
+  box-shadow: inset 0 0 0 1px #000;
+  margin-bottom: 1rem;
+}
+.modal-cert-legenda {
+  font-size: 0.82rem;
+  color: var(--cor-texto-sec);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.modal-cert-acoes { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+@media (max-width: 600px) {
+  .habilidades-grid { grid-template-columns: 1fr; }
+  .formacoes-grid { grid-template-columns: 1fr; }
+  .certificados-grid { grid-template-columns: 1fr; }
+  .experiencia-item { grid-template-columns: 1fr; }
+  .exp-data { text-align: left; margin-bottom: 0.25rem; }
+  .contato-lista .rotulo { width: auto; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-section { opacity: 1; transform: none; transition: none; }
+  .borda-animada { animation: none; }
+}

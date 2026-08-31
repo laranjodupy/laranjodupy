@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="escuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio — Daniel</title>
+
+  <!-- Aplica o tema salvo ANTES do CSS pintar, pra não piscar o tema errado por 1 frame -->
+  <script>
+    (function () {
+      try {
+        var salvo = localStorage.getItem('tema');
+        if (salvo) document.documentElement.setAttribute('data-tema', salvo);
+      } catch (e) { /* modo privado do navegador, sem problema, cai no padrão */ }
+    })();
+  </script>
+
+  <!-- Ícone do site -->
+  <link rel="icon" href="componentes/iconegatinhohtml.png" type="image/png">
+
+  <!-- Fontes pixeladas e de terminal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Canvas de partículas de fundo (mesma lógica de antes, cores adaptam ao tema) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ===================================================
+       JANELA — moldura de "sistema operacional retrô"
+       envolvendo o site inteiro. Isso é só decoração de UI,
+       o conteúdo real começa em .container lá dentro.
+  ==================================================== -->
+  <div class="janela">
+
+    <div class="janela-barra">
+      <div class="janela-barra-titulo">
+        <span class="janela-icone" aria-hidden="true">🐍</span>
+        <span>portfolio.py — Daniel Viana Lima</span>
+      </div>
+      <div class="janela-barra-acoes">
+        <button type="button" class="tema-toggle" id="btn-tema" aria-label="Alternar tema">
+          <span id="tema-toggle-label">CINZA</span>
+        </button>
+        <span class="janela-btn" aria-hidden="true">_</span>
+        <span class="janela-btn" aria-hidden="true">▢</span>
+        <button type="button" class="janela-btn janela-btn-fechar" id="btn-fechar" aria-label="Fechar janela">×</button>
+      </div>
+    </div>
+
+    <div class="janela-corpo">
+      <div class="container">
+
+        <header>
+          <div class="header-top borda-animada">
+            <span class="prompt">&gt; python portfolio.py</span>
+          </div>
+          <h1 class="nome">Daniel Viana Lima</h1>
+          <p class="cargo">
+            · Graduando em <em>Ciência da Computação</em> · Entusiasta de <em>Dados &amp; IA</em> <br> · Cursando <em>Programação</em>
+          </p>
+
+          <hr class="divisor">
+
+          <section class="sobre fade-section">
+            <h2 class="secao-titulo">&lt;Sobre_Mim&gt;</h2>
+            <p>
+              Olá, sou Daniel Viana Lima, tenho 18 anos. Sou um amante da tecnologia e da ciência, em busca de uma vaga de <em>Estágio em Ciência da Computação</em>. Estou sempre em busca de aprender novas habilidades e aprimorar meus conhecimentos na área de TI, principalmente na parte de IA, Dados, LLM, e em soluções de software/automação utilizando a tecnologia como um meio para isso. Além de estudar, gosto de aprender/ver sobre ciências naturais - principalmente no ramo da física e suas teorias -, jogar xadrez, e pensar em ideias de software que poderiam existir.
+            </p>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="idiomas fade-section">
+            <h2 class="secao-titulo">&lt;Idiomas&gt;</h2>
+            <ul class="idiomas-lista">
+
+              <li class="idioma-item pixel-frame">
+                <span class="idioma-bandeira">🇧🇷</span>
+                <div class="idioma-info">
+                  <span class="idioma-nome">Português</span>
+                  <span class="idioma-nivel nivel-nativo">Nativo</span>
+                </div>
+              </li>
+
+              <li class="idioma-item pixel-frame">
+                <span class="idioma-bandeira">🇺🇸</span>
+                <div class="idioma-info">
+                  <span class="idioma-nome">Inglês</span>
+                  <span class="idioma-nivel nivel-intermediario">Intermediário</span>
+                </div>
+              </li>
+
+              <li class="idioma-item pixel-frame">
+                <span class="idioma-bandeira">🇫🇷</span>
+                <div class="idioma-info">
+                  <span class="idioma-nome">Francês</span>
+                  <span class="idioma-nivel nivel-basico">Básico</span>
+                </div>
+              </li>
+
+            </ul>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="formacoes fade-section">
+            <h2 class="secao-titulo">&lt;Formações&gt;</h2>
+            <div class="formacoes-grid">
+
+              <div class="card-formacao pixel-frame">
+                <div class="formacao-header">
+                  <span class="formacao-icone">🎓</span>
+                  <span class="formacao-status status-andamento">Em andamento</span>
+                </div>
+                <h3 class="formacao-curso">Ciências da Computação</h3>
+                <span class="formacao-instituicao">Estácio - Polo Salgado Filho</span>
+                <span class="formacao-periodo">02/2026 – 12/2030</span>
+                <p class="formacao-desc">Graduando em Ciência da Computação na Estácio.</p>
+              </div>
+
+              <div class="card-formacao pixel-frame">
+                <div class="formacao-header">
+                  <span class="formacao-icone">💻</span>
+                  <span class="formacao-status status-concluido">Concluído</span>
+                </div>
+                <h3 class="formacao-curso">Curso de Programação</h3>
+                <span class="formacao-instituicao">Jovem Tech X Conecta-SE</span>
+                <span class="formacao-periodo">12/2025 – 08/2026</span>
+                <p class="formacao-desc">Curso de Programação voltado a capacitação de jovens, com o objetivo de torná-los Desenvolvedores Júnior.</p>
+              </div>
+
+              <div class="card-formacao pixel-frame">
+                <div class="formacao-header">
+                  <span class="formacao-icone">📚</span>
+                  <span class="formacao-status status-concluido">Concluído</span>
+                </div>
+                <h3 class="formacao-curso">Técnico em Eletroeletrônica</h3>
+                <span class="formacao-instituicao">SENAI/CETAF</span>
+                <span class="formacao-periodo">02/2024 – 12/2025</span>
+                <p class="formacao-desc">Concluí, conjuntamente com o Ensino Médio, o curso Téc. em Eletroeletrônica no SENAI, tendo participação no evento 'Mundo Senai'.</p>
+              </div>
+
+              <div class="card-formacao pixel-frame">
+                <div class="formacao-header">
+                  <span class="formacao-icone">🏫</span>
+                  <span class="formacao-status status-concluido">Concluído</span>
+                </div>
+                <h3 class="formacao-curso">Ensino Médio Completo</h3>
+                <span class="formacao-instituicao">SESI/CEFEM</span>
+                <span class="formacao-periodo">02/2023 – 12/2025</span>
+                <p class="formacao-desc">Concluí do Ensino Médio no SESI-CEFEM, participando de todos os projetos e olimpíadas possíveis.</p>
+              </div>
+
+            </div>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="habilidades fade-section">
+            <h2 class="secao-titulo">&lt;Hard-Skills&gt;</h2>
+            <p class="secao-subtitulo">Barrinha de vida estilo fliperama — cada bloco é 10% de domínio.</p>
+            <div class="habilidades-grid">
+
+              <div class="card-habilidade pixel-frame clicavel" id="python_card">
+                <img class="icone" src="componentes/icones/icon-python.png" alt="Python" width="22" height="22">
+                <h3>Python</h3>
+                <p>Tratamento de Dados, ChatBots e Computer Vision.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento" style="--conhecimento:7;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-cpp">
+                <img class="icone" src="componentes/icones/icon-cpp.png" alt="C++" width="22" height="22">
+                <h3>C++</h3>
+                <p>Aplicação da linguagem com o Arduino (Introdução à Automação).</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-cpp" style="--conhecimento:3;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-nocode">
+                <img class="icone" src="componentes/icones/icon-nocode.png" alt="No-code e Low-code" width="22" height="22">
+                <h3>No-code &amp; Low-Code</h3>
+                <p>Interações com IA, Fluxos Visuais e Prototipagem Rápida.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-nocode" style="--conhecimento:7;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-html">
+                <img class="icone" src="componentes/icones/icon-html.png" alt="HTML" width="22" height="22">
+                <h3>HTML + CSS</h3>
+                <p>Estrutura e estilo de páginas web, Flexbox e Grid.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-html" style="--conhecimento:5;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                    <span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-js">
+                <img class="icone" src="componentes/icones/icon-js.png" alt="JavaScript" width="22" height="22">
+                <h3>JavaScript</h3>
+                <p>Lógica de programação, manipulação DOM.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-js" style="--conhecimento:4;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-git">
+                <img class="icone" src="componentes/icones/icon-git.png" alt="Git" width="22" height="22">
+                <h3>Git + GitHub</h3>
+                <p>Versionamento, repositórios e colaboração.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-git" style="--conhecimento:8;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-react">
+                <img class="icone" src="componentes/icones/icon-react.png" alt="React" width="22" height="22">
+                <h3>React.js</h3>
+                <p>Componentes, hooks e interfaces reativas.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-react" style="--conhecimento:4;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-supabase">
+                <img class="icone" src="componentes/icones/icon-supabase.png" alt="Supabase" width="22" height="22">
+                <h3>Supabase</h3>
+                <p>Criação, auth e banco em tempo real.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-supabase" style="--conhecimento:4;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-postgres">
+                <img class="icone" src="componentes/icones/icon-postgres.png" alt="PostgreSQL" width="22" height="22">
+                <h3>PostgreSQL</h3>
+                <p>Banco relacional, queries SQL e modelagem de dados.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-postgres" style="--conhecimento:4;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-c">
+                <img class="icone" src="componentes/icones/icon-c.png" alt="C" width="22" height="22">
+                <h3>C</h3>
+                <p>Experiência em Lógica de Programação com a linguagem.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-c" style="--conhecimento:3;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-habilidade pixel-frame clicavel" id="card-cloudflare">
+                <img class="icone" src="componentes/icones/icon-cloudflare.png" alt="Cloudflare" width="22" height="22">
+                <h3>Cloudflare</h3>
+                <p>Deploy Serveless, Bindings, R2, D1, e KV</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-cloudflare" style="--conhecimento:5;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-habilidade pixel-frame clicavel" id="card-csharp">
+                <img class="icone" src="componentes/icones/icon-csharp.png" alt="C#" width="22" height="22">
+                <h3>C#</h3>
+                <p>Lógica de programação orientada a objetos.</p>
+                <div class="container-barrinha">
+                  <div class="barrinha-conhecimento barrinha-csharp" style="--conhecimento:3;">
+                    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="softskills fade-section">
+            <h2 class="secao-titulo">&lt;Soft-Skills&gt;</h2>
+            <ul class="softskills-lista">
+              <li class="softskill-item pixel-frame"><span class="sskill-icone">💬</span>Comunicação Eficaz e Facilidade com Planejamentos</li>
+              <li class="softskill-item pixel-frame"><span class="sskill-icone">🤝</span>Trabalho em Equipe</li>
+              <li class="softskill-item pixel-frame"><span class="sskill-icone">🧩</span>Tomada de Decisões</li>
+              <li class="softskill-item pixel-frame"><span class="sskill-icone">⏳</span>Pontualidade</li>
+              <li class="softskill-item pixel-frame"><span class="sskill-icone">🧠</span>Logicidade</li>
+            </ul>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="experiencias fade-section">
+            <h2 class="secao-titulo">&lt;Experiências&gt;</h2>
+            <ul class="experiencias-lista">
+
+              <li class="experiencia-item">
+                <span class="exp-data">2024 &amp;&amp; 2025</span>
+                <div class="exp-conteudo">
+                  <h3 class="exp-cargo">Projetos Photodot &amp; CarbonSmile - Cienart</h3>
+                  <span class="exp-empresa">Evento de Ciências e Inovação na UFS</span>
+                  <p class="exp-descricao">Participei dos times Carbonsmile e Photodot representando o SESI. Os projetos consistiam na produção de um produto inovador químico a partir de recursos 100% naturais. Conquistamos medalha de ouro (Top 7) com o projeto Photodot (2025), e Top 10 com o projeto CarbonSmile (2026).</p>
+                </div>
+              </li>
+
+              <li class="experiencia-item">
+                <span class="exp-data">2024 &amp;&amp; 2025</span>
+                <div class="exp-conteudo">
+                  <h3 class="exp-cargo">Engenheiro de Manufatura</h3>
+                  <span class="exp-empresa">Arcum Tech 25 - SESI</span>
+                  <p class="exp-descricao">Fui integrante do time Arcum Tech 25 (Único time regional estadual), exercendo o cargo de Engenheiro de Manufatura na competição F1 in Schools. Conseguimos o Top 30 Nacional e o Top 2 na categoria "Reconhecimento dos Juízes".</p>
+                </div>
+              </li>
+
+              <li class="experiencia-item">
+                <span class="exp-data">02/2026</span>
+                <div class="exp-conteudo">
+                  <h3 class="exp-cargo">Projeto — Landing Page Pessoal</h3>
+                  <span class="exp-empresa">Projeto Próprio</span>
+                  <p class="exp-descricao">Criação de site portfólio com HTML/CSS/JS puro e responsivo.</p>
+                </div>
+              </li>
+
+              <li class="experiencia-item">
+                <span class="exp-data">04/2026</span>
+                <div class="exp-conteudo">
+                  <h3 class="exp-cargo">Criação e Autoria de um Banco de Dados</h3>
+                  <span class="exp-empresa">Jovem Tech</span>
+                  <p class="exp-descricao">Participei de um projeto em equipe onde criamos um banco de dados com tabelas, metadados e fizemos os testes de validação e autoria do mesmo.</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="certificados fade-section">
+            <h2 class="secao-titulo">&lt;Certificados&gt;</h2>
+            <p class="secao-subtitulo">Clique num certificado pra ver em tamanho completo, com a legenda explicando o que cobre — e ver ou baixar o PDF/imagem original pra uma visualização melhor.</p>
+            <div class="certificados-grid">
+
+              <div class="card-certificado pixel-frame clicavel" data-cert="ds">
+                <img src="componentes/certificados/cert-ds-essentials.jpg" alt="Certificado Data Science Essentials with Python" class="certificado-thumb">
+                <div class="certificado-info">
+                  <h3>Data Science Essentials with Python</h3>
+                  <span class="certificado-emissor">Cisco Networking Academy</span>
+                </div>
+              </div>
+
+              <div class="card-certificado pixel-frame clicavel" data-cert="i2cs">
+                <img src="componentes/certificados/cert-i2cs.jpg" alt="Certificado Introduction to Cybersecurity" class="certificado-thumb">
+                <div class="certificado-info">
+                  <h3>Introduction to Cybersecurity</h3>
+                  <span class="certificado-emissor">Cisco Networking Academy</span>
+                </div>
+              </div>
+
+              <div class="card-certificado pixel-frame clicavel" data-cert="jovemtech">
+                <img src="componentes/certificados/cert-jovemtech.jpg" alt="Certificado Desenvolvedor Júnior Full Stack" class="certificado-thumb">
+                <div class="certificado-info">
+                  <h3>Desenvolvedor Júnior Full Stack</h3>
+                  <span class="certificado-emissor">Instituto de Inovação de Sergipe · Jovem Tech</span>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="contato fade-section">
+            <h2 class="secao-titulo">&lt;Contato&gt;</h2>
+            <ul class="contato-lista">
+              <li>
+                <span class="rotulo">Email</span>
+                <a href="mailto:vianalimadaniel@gmail.com">[vianalimadaniel@gmail.com]</a>
+              </li>
+              <li>
+                <span class="rotulo">GitHub</span>
+                <a href="https://github.com/laranjodupy" target="_blank">[github.com/laranjodupy]</a>
+              </li>
+              <li>
+                <span class="rotulo">Instagram</span>
+                <a href="https://instagram.com/euu.danieeu" target="_blank">[@euu.danieeu]</a>
+              </li>
+              <li>
+                <span class="rotulo">WhatsApp</span>
+                <a href="https://wa.me/5579998904015" target="_blank">[+55 (79) 99890-4015]</a>
+              </li>
+              <li>
+                <span class="rotulo">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/daniel-viana-lima-850b252ba/" target="_blank">[linkedin.com/in/daniel-viana-lima]</a>
+              </li>
+            </ul>
+          </section>
+
+          <hr class="divisor">
+
+          <section class="curriculo fade-section">
+            <h2 class="secao-titulo">&lt;Currículo&gt;</h2>
+            <p class="curriculo-desc">Prefere ver tudo de uma vez? Baixe meu currículo completo em PDF.</p>
+            <a href="componentes/curriculo_DEV_Daniel_Viana.pdf" download class="btn-download pixel-frame clicavel">
+              <span class="btn-icone">⬇</span> Fazer Download
+            </a>
+          </section>
+
+          <hr class="divisor">
+
+          <marquee direction="right" behavior="scroll" scrollamount="10" class="marquee">
+            print("Hello World!") · powered by café e teimosia · </marquee>
+        </header>
+
+        <footer class="fade-section barra-status">
+          <span class="status-led" aria-hidden="true"></span>
+          <span>sistema: online</span>
+          <span class="status-separador">|</span>
+          <span>Feito com <span style="color: var(--python-azul)">HTML</span>, <span style="color: var(--cor-texto)">CSS</span> e <span style="color: var(--python-amarelo)">JS</span></span>
+          <span class="status-separador">|</span>
+          <span>Daniel Viana Lima · 2026</span>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
