@@ -4,7 +4,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=18&duration=3000&pause=1200&color=F7D51D&background=00000000&center=true&vCenter=true&width=650&height=60&lines=OL%C3%81%2C+EU+SOU+O+DANIEL;18+ANOS+%7C+DEV+%2B+CI%C3%8ANCIA;PYTHON+%7C+IA+%7C+DADOS+%7C+LLM;PLAYER+1+READY)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=18&duration=3000&pause=1200&color=F7D51D&background=00000000&center=true&vCenter=true&width=650&height=60&lines=OL%C3%81%2C+EU+SOU+O+DANIEL;19+ANOS+%7C+DEV+%2B+CI%C3%8ANCIA;PYTHON+%7C+IA+%7C+DADOS+%7C+LLM;PLAYER+1+READY)](https://git.io/typing-svg)
 
 </div>
 
@@ -26,10 +26,18 @@
 class Daniel:
     def __init__(self):
         self.nome     = "Daniel Viana Lima"
-        self.idade    = 18
+        self.idade    = 19
         self.local    = "Brasil"
         self.objetivo = "Estágio em Ciência da Computação"
         self.foco     = ["IA", "Dados", "LLM", "Automação de Software"]
+
+    def idiomas(self):
+        return {
+            "Português Brasileiro": "Nativo",
+            "Inglês": "Intermediário",
+            "Espanhol": "Básico",
+            "Francês": "Básico"
+        }
 
     def hobbies(self):
         return [
@@ -112,6 +120,39 @@ Lógica de programação orientada a objetos.
 
 <br/>
 
+## 🏆 CONQUISTAS DESBLOQUEADAS
+
+<table align="center">
+<tr>
+<td align="center" width="33%">
+
+🎓<br/>**Data Science Essentials<br/>with Python**
+<br/><sub>Cisco Networking Academy</sub>
+
+[Ver certificado ↗](./componentes/Certificado_DS_Essentials_Daniel.pdf)
+
+</td>
+<td align="center" width="33%">
+
+🔐<br/>**Introduction to<br/>Cybersecurity**
+<br/><sub>Cisco Networking Academy</sub>
+
+[Ver certificado ↗](./componentes/I2CS_Daniel.pdf)
+
+</td>
+<td align="center" width="33%">
+
+💻<br/>**Desenvolvedor Júnior<br/>Full Stack**
+<br/><sub>Instituto de Inovação de Sergipe · Jovem Tech</sub>
+
+[Ver certificado ↗](./componentes/Certificado_Jovem_tech.jpeg)
+
+</td>
+</tr>
+</table>
+
+<br/>
+
 ## QUEST LOG — PROJETOS EM DESTAQUE
 
 <table align="center">
@@ -142,12 +183,15 @@ com foco em queries e estrutura de dados em PL/pgSQL.
 <tr>
 <td width="50%" valign="top">
 
-### 🐍 Database Jovemtech
-**[database_Jovemtech](https://github.com/laranjodupy/database_Jovemtech)**
+### 🍊 LaranBot — Boilerplate de ChatBot
+**[LaranBotDev_Telegram](https://github.com/laranjodupy/LaranBotDev_Telegram)**
 
-Estudos e projetos práticos de manipulação e tratamento de dados com Python.
+Template pra chatbot no Telegram rodando em **Cloudflare Workers (Python) + FastAPI**
+via ponte ASGI. Webhook, comandos com botões inline, banco **D1** versionado por
+migrations, e IA rodando na própria infra da Cloudflare (Workers AI) — sem chave
+externa. README-tutorial completo, do zero ao deploy.
 
-`Python`
+`Python` `FastAPI` `Cloudflare Workers` `D1`
 
 </td>
 <td width="50%" valign="top">
