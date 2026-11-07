@@ -59,8 +59,8 @@ class Daniel:
       <p><strong>React</strong> <code>████░░░░░░</code> <strong>4/10</strong><br>Componentes, hooks e interfaces.</p>
     </td>
     <td width="50%" valign="top">
-      <p><strong>Supabase</strong> <code>██████░░░░</code> <strong>3/10</strong><br>Autenticação e dados em tempo real.</p>
-      <p><strong>PostgreSQL</strong> <code>█████░░░░░</code> <strong>3/10</strong><br>Modelagem relacional e consultas SQL.</p>
+      <p><strong>Supabase</strong> <code>██████░░░░</code> <strong>6/10</strong><br>Autenticação e dados em tempo real.</p>
+      <p><strong>PostgreSQL</strong> <code>█████░░░░░</code> <strong>5/10</strong><br>Modelagem relacional e consultas SQL.</p>
       <p><strong>C++</strong> <code>██░░░░░░░░</code> <strong>2/10</strong><br>Aplicações com Arduino.</p>
       <p><strong>C#</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Programação orientada a objetos.</p>
     </td>
