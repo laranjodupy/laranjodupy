@@ -1,38 +1,57 @@
+<p align="center">
+  <a href="https://danielviana-portfolioweb.vercel.app/">
+    <img src="./assets/readme-terminal.png" width="100%" alt="Laranjo Lab em pixel art, com um computador retrô ligado ao entardecer. Abrir portfólio.">
+  </a>
+</p>
+
 # Daniel Viana Lima
 
-Graduando em Ciência da Computação na Estácio, em Sergipe. Desenvolvo projetos com Python e JavaScript nas áreas de dados, inteligência artificial e desenvolvimento full stack. Busco oportunidades de estágio e vagas júnior.
+**Dados, IA e desenvolvimento full stack**
 
-[Portfólio](https://danielviana-portfolioweb.vercel.app/) · [Currículo](componentes/curriculo_DEV_Daniel_Viana.pdf) · [LinkedIn](https://www.linkedin.com/in/dev-danielvianalima/) · [E-mail](mailto:vianalimadaniel@gmail.com)
+Graduando em Ciência da Computação na Estácio, em Sergipe. Uso Python para trabalhar com dados e automação, e JavaScript para construir aplicações web e integrar APIs. Busco oportunidades de **estágio ou vaga júnior**.
 
-## Projetos selecionados
+[Portfólio e currículo](https://danielviana-portfolioweb.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/dev-danielvianalima/) · [E-mail](mailto:vianalimadaniel@gmail.com)
 
-| Projeto | Entrega | Tecnologias |
-| --- | --- | --- |
-| [LaranBot](https://github.com/laranjodupy/LaranBotDev_Telegram) | Template reutilizável para bots do Telegram com webhook, migrações de banco e integração com Workers AI. | Python, FastAPI, Cloudflare Workers, D1 |
-| [Simple Graphs](https://pypi.org/project/plotting-dataframes-laranjodupy/) | Pacote Python publicado no PyPI para carregar dados e configurar gráficos. | Python, Pandas, Matplotlib |
-| [Loja Rápida](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech) | Modelagem e validação em equipe de um banco relacional com views, consultas e transações. | PostgreSQL, PL/pgSQL |
-| [Gestão de Alunos](https://github.com/laranjodupy/stalkerdeAluno_JovemTech) | Aplicação desenvolvida em equipe com cadastro de alunos, validação na API e painel de estatísticas. | React, Node.js, Express |
+## `01` Projetos selecionados
 
-## Abrir o portfólio localmente
+| Projeto | O que entreguei |
+| --- | --- |
+| [**LaranBot**](https://github.com/laranjodupy/LaranBotDev_Telegram) | Criei um template para bots do Telegram com webhook, banco D1 e integração com Workers AI. Documentei a configuração local, as migrações e o deploy.<br><sub>Python · FastAPI · Cloudflare Workers</sub> |
+| [**Simple Graphs**](https://github.com/laranjodupy/plotting-dataframes) | Publiquei no [PyPI](https://pypi.org/project/plotting-dataframes-laranjodupy/) um pacote para carregar arquivos em DataFrames e configurar gráficos com menos código repetido.<br><sub>Python · Pandas · Matplotlib</sub> |
+| [**Loja Rápida**](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech) | Participei da modelagem e validação de um banco de dados para uma loja. A equipe entregou esquema, dados de exemplo, views, consultas e transações.<br><sub>PostgreSQL · PL/pgSQL</sub> |
+| [**Gestão de Alunos**](https://github.com/laranjodupy/stalkerdeAluno_JovemTech) | Desenvolvi em equipe uma aplicação de cadastro com validação na API e um painel de estatísticas.<br><sub>React · Node.js · Express</sub> |
 
-Extraia o ZIP e abra `index.html` no navegador. O site usa HTML, CSS e JavaScript e pode ser aberto sem instalar dependências. Para servir a pasta localmente pelo terminal, use Python 3.
+## `02` Stack em uso
 
-```powershell
-py -m http.server 8000
-```
+- **Dados e IA** · `Python` `SQL` `Pandas` `Matplotlib`
+- **Web e APIs** · `JavaScript` `React` `Node.js` `Express` `FastAPI`
+- **Banco e infraestrutura** · `PostgreSQL` `Supabase` `Cloudflare Workers` `Git`
 
-Em Linux ou macOS, use `python3 -m http.server 8000`. Depois, acesse [http://localhost:8000](http://localhost:8000).
+<details>
+<summary><strong>Formação e certificados</strong></summary>
 
-- `index.html` concentra os textos, as categorias e os links dos projetos.
-- `style.css` contém a paleta, o layout e as animações.
-- `script.js` controla os filtros dos projetos.
-- `assets/` guarda as ilustrações, o ícone e as fontes locais com suas licenças.
-- `componentes/` guarda o currículo público e os certificados.
+- **Estácio** · Ciência da Computação, em andamento.
+- **Jovem Tech / Conecta-SE** · [Formação em Desenvolvimento Full Stack](./componentes/Certificado_Jovem_tech.jpeg).
+- **SENAI/CETAF** · Técnico em Eletroeletrônica.
+- **Cisco Networking Academy** · [Data Science Essentials with Python](./componentes/Certificado_DS_Essentials_Daniel.pdf) e [Introduction to Cybersecurity](./componentes/I2CS_Daniel.pdf).
+- **DIO** · Introdução à Análise de Dados com SQL, Fundamentos Teóricos sobre ETL, Fundamentos de Business Intelligence e bootcamp AI Automation com N8N.
+- **DIO / Santander** · Aceleração em RAG com ChromaDB, LlamaIndex e Python.
 
-Na hospedagem estática, publique a pasta que contém `index.html`. O site usa caminhos relativos e dispensa uma etapa de build.
+</details>
+
+<details>
+<summary><strong>Rodar o portfólio localmente</strong></summary>
+
+O site usa HTML, CSS e JavaScript. Clone este repositório e abra `index.html` no navegador. Para servir a pasta pelo terminal no Windows, execute `py -m http.server 8000` na raiz e abra [localhost:8000](http://localhost:8000).
+
+</details>
+
+## `03` Atividade no GitHub
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake.svg">
-  <img alt="Cobrinha no gráfico de contribuições do GitHub" src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" width="100%" alt="Cobrinha percorrendo meu gráfico de contribuições no GitHub.">
 </picture>
+
+<sub>Fora do terminal, jogo xadrez e gosto de física.</sub>
