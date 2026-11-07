@@ -10,9 +10,66 @@
 
 Graduando em Ciência da Computação na Estácio, em Sergipe. Uso Python para trabalhar com dados e automação, e JavaScript para construir aplicações web e integrar APIs. Busco oportunidades de **estágio ou vaga júnior**.
 
-[Portfólio e currículo](https://danielviana-portfolioweb.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/dev-danielvianalima/) · [E-mail](mailto:vianalimadaniel@gmail.com)
+[Projetos](#projetos-selecionados) · [Portfólio e currículo](https://danielviana-portfolioweb.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/dev-danielvianalima/) · [E-mail](mailto:vianalimadaniel@gmail.com)
 
-## `01` Projetos selecionados
+## 🎮 Sobre mim · `player_status.py`
+
+```python
+class Daniel:
+    local = "Sergipe, Brasil"
+    formacao = "Ciência da Computação · Estácio"
+    buscando = ("Estágio", "Vaga júnior")
+    foco = ("Dados", "IA", "LLMs", "Full stack", "Automação")
+
+    def idiomas(self):
+        return {
+            "Português": "Nativo",
+            "Inglês": "Intermediário",
+            "Espanhol": "Básico",
+            "Francês": "Básico",
+        }
+
+    def fora_do_terminal(self):
+        return (
+            "Física e ciências naturais 🔭",
+            "Xadrez ♟️",
+            "Bolar ideias de software que ainda não existem 💡",
+        )
+
+    def missao_atual(self):
+        return "Aprender sempre. Nível não é teto, é checkpoint."
+```
+
+> Seja estudando física ou lendo código, gosto de seguir a lógica até conseguir explicar por que as coisas funcionam.
+
+## 🧰 Hard skills · `skills.ini`
+
+<p align="center">
+  <img src="./assets/readme-stack.png" width="522" alt="Badges de Python, TypeScript, JavaScript, C#, C++, C, HTML, CSS, React, Supabase, PostgreSQL, Git e GitHub, Cloudflare, FastAPI e n8n.">
+</p>
+
+<sub>Barras de XP · Minha autoavaliação de prática.</sub>
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <p><strong>Python</strong> <code>███████░░░</code> <strong>7/10</strong><br>Tratamento de dados, bots e APIs.</p>
+      <p><strong>TypeScript</strong> <code>████░░░░░░</code> <strong>4/10</strong><br>Tipagem em projetos React.</p>
+      <p><strong>JavaScript</strong> <code>█████░░░░░</code> <strong>5/10</strong><br>DOM, interfaces e APIs com Node.js.</p>
+      <p><strong>React</strong> <code>████░░░░░░</code> <strong>4/10</strong><br>Componentes, hooks e interfaces.</p>
+    </td>
+    <td width="50%" valign="top">
+      <p><strong>Supabase</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Autenticação e dados em tempo real.</p>
+      <p><strong>PostgreSQL</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Modelagem relacional e consultas SQL.</p>
+      <p><strong>C++</strong> <code>██░░░░░░░░</code> <strong>2/10</strong><br>Aplicações com Arduino.</p>
+      <p><strong>C#</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Programação orientada a objetos.</p>
+    </td>
+  </tr>
+</table>
+
+## Projetos selecionados
+
+<sub>📂 <code>quest_log.md</code></sub>
 
 | Projeto | O que entreguei |
 | --- | --- |
@@ -21,14 +78,10 @@ Graduando em Ciência da Computação na Estácio, em Sergipe. Uso Python para t
 | [**Loja Rápida**](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech) | Participei da modelagem e validação de um banco de dados para uma loja. A equipe entregou esquema, dados de exemplo, views, consultas e transações.<br><sub>PostgreSQL · PL/pgSQL</sub> |
 | [**Gestão de Alunos**](https://github.com/laranjodupy/stalkerdeAluno_JovemTech) | Desenvolvi em equipe uma aplicação de cadastro com validação na API e um painel de estatísticas.<br><sub>React · Node.js · Express</sub> |
 
-## `02` Stack em uso
-
-- **Dados e IA** · `Python` `SQL` `Pandas` `Matplotlib`
-- **Web e APIs** · `JavaScript` `React` `Node.js` `Express` `FastAPI`
-- **Banco e infraestrutura** · `PostgreSQL` `Supabase` `Cloudflare Workers` `Git`
+## 🏆 Formação e certificados · `achievements.log`
 
 <details>
-<summary><strong>Formação e certificados</strong></summary>
+<summary><strong>Ver formação e cursos concluídos</strong></summary>
 
 - **Estácio** · Ciência da Computação, em andamento.
 - **Jovem Tech / Conecta-SE** · [Formação em Desenvolvimento Full Stack](./componentes/Certificado_Jovem_tech.jpeg).
@@ -46,12 +99,10 @@ O site usa HTML, CSS e JavaScript. Clone este repositório e abra `index.html` n
 
 </details>
 
-## `03` Atividade no GitHub
+## 🐍 Atividade no GitHub · `git log`
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake.svg">
   <img src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" width="100%" alt="Cobrinha percorrendo meu gráfico de contribuições no GitHub.">
 </picture>
-
-<sub>Fora do terminal, jogo xadrez e gosto de física.</sub>
