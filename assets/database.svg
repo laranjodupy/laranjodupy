@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" shape-rendering="crispEdges">
+      <defs><pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16V0H16" fill="none" stroke="#c0acff" stroke-opacity=".16"/></pattern>
+      <radialGradient id="glow"><stop stop-color="#c0acff" stop-opacity=".24"/><stop offset="1" stop-color="#c0acff" stop-opacity="0"/></radialGradient></defs>
+      <path fill="#201c32" d="M0 0h560v160H0z"/><path fill="url(#glow)" d="M0 0h560v160H0z"/><path fill="url(#grid)" d="M0 0h560v160H0z"/>
+      <g fill="#c0acff" opacity=".48"><path d="M147 49h6v2h-6zM149 47h2v6h-2zM417 108h8v2h-8zM420 105h2v8h-2zM383 36h3v3h-3zM168 119h3v3h-3zM400 76h2v2h-2zM117 98h2v2h-2zM452 54h3v3h-3z"/></g>
+      <g fill="#c0acff" stroke="#c0acff">
+<path fill="#2c2242" stroke-width="2" d="M200 56h71v49h-71zM302 35h59v42h-59zM309 94h52v35h-52z"/>
+<path fill="none" stroke-width="2" stroke-opacity=".75" d="M271 80h17V55h14m-14 25v29h21"/>
+<path stroke="none" fill-opacity=".7" d="M201 57h69v8h-69zM303 36h57v8h-57zM310 95h50v8h-50z"/>
+<path fill="none" stroke-width="2" stroke-opacity=".42" d="M207 73h26m-26 9h39m-39 9h30m73-41h25m-25 8h35m-35 8h18m-3 44h20m-20 8h14"/>
+<path stroke="none" d="M285 77h6v6h-6z"/>
+</g>
+    </svg>

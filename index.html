@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#10111a">
+  <meta name="description" content="Portfólio de Daniel Viana Lima, estudante de Ciência da Computação em Sergipe. Projetos em Python, dados, IA e desenvolvimento full stack.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Daniel Viana Lima · Portfólio">
+  <meta property="og:description" content="Projetos em dados, inteligência artificial e desenvolvimento full stack.">
+  <title>Daniel Viana Lima · Portfólio</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body id="inicio">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Daniel Viana Lima, início">
+        <img src="assets/favicon.svg" alt="" width="32" height="32">
+        <span>laranjodupy<span class="brand-dot">_</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="header-resume" href="componentes/curriculo_DEV_Daniel_Viana.pdf" target="_blank" rel="noopener" aria-label="Abrir currículo em PDF, nova aba">
+        Currículo <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span> PORTFÓLIO DE DESENVOLVIMENTO</p>
+            <h1 id="titulo">Daniel<br><span>Viana Lima<span class="hero-period">.</span></span></h1>
+            <p class="hero-role">Dados, IA e desenvolvimento full stack</p>
+            <p class="hero-intro">Estudante de Ciência da Computação em Sergipe. Trabalho com Python e JavaScript em projetos de análise de dados, automação e aplicações web.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projetos">Explorar projetos <span aria-hidden="true">↓</span></a>
+              <a class="button button-secondary" href="componentes/curriculo_DEV_Daniel_Viana.pdf" download>Baixar currículo <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+
+          <figure class="hero-window">
+            <div class="window-bar" aria-hidden="true">
+              <span class="window-lights"><i></i><i></i><i></i></span>
+              <span>laranjo_lab.exe</span>
+              <span class="window-decoration">[ — ]</span>
+            </div>
+            <div class="hero-visual">
+              <img src="assets/laranjo-lab.svg" alt="Ilustração em pixel art de um computador retrô aceso diante de montanhas ao entardecer" width="360" height="212" fetchpriority="high">
+              <div class="sky-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="visual-label" aria-hidden="true">EST. 2026</span>
+            </div>
+            <figcaption class="window-caption">
+              <span><span class="signal" aria-hidden="true"></span> Disponível para estágio e vagas júnior</span>
+              <span class="window-location">SERGIPE / BR</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="stack-strip" aria-label="Tecnologias em destaque">
+          <span class="stack-label"><span aria-hidden="true">▦</span> STACK EM FOCO</span>
+          <ul class="stack-list">
+            <li>Python</li><li>SQL</li><li>JavaScript</li><li>React</li><li>FastAPI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects wrap" id="projetos" aria-labelledby="projetos-titulo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="section-number">01</span> / TRABALHOS SELECIONADOS</p>
+          <h2 id="projetos-titulo">Projetos<span>.</span></h2>
+          <p class="section-intro">O que construí e como cada projeto funciona.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrar projetos" hidden>
+          <button type="button" aria-pressed="true" data-filter="todos">Todos</button>
+          <button type="button" aria-pressed="false" data-filter="dados">Dados e IA</button>
+          <button type="button" aria-pressed="false" data-filter="fullstack">Full stack</button>
+        </div>
+      </div>
+      <p id="filter-status" class="sr-only" role="status"></p>
+
+      <div class="projects-grid">
+        <article class="project project-featured" data-category="dados fullstack" aria-labelledby="laranbot-titulo">
+          <div class="project-content">
+            <p class="project-meta"><span class="flag"><span aria-hidden="true">✦</span> DESTAQUE</span><span>PROJETO AUTORAL</span></p>
+            <h3 id="laranbot-titulo">LaranBot</h3>
+            <p class="project-summary">Template reutilizável para criar bots no Telegram com Python.</p>
+            <p class="project-description">Integrei o webhook do Telegram a uma API FastAPI, com persistência em D1 e integração com Workers AI. Documentei a configuração local, as migrações do banco e o deploy.</p>
+            <ul class="tags" aria-label="Tecnologias do LaranBot"><li>Python</li><li>FastAPI</li><li>Cloudflare Workers</li><li>D1</li></ul>
+            <a class="project-link" href="https://github.com/laranjodupy/LaranBotDev_Telegram" target="_blank" rel="noopener" aria-label="Ver código do LaranBot no GitHub, nova aba">Ver código no GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="bot-visual">
+            <span class="diagram-caption"><i aria-hidden="true"></i> ARQUITETURA DO BOT</span>
+            <div class="bot-flow" role="img" aria-label="O webhook do Telegram chama a API FastAPI no Cloudflare Workers, que se conecta ao banco D1 e ao Workers AI.">
+              <div class="diagram-node node-telegram" aria-hidden="true"><span class="pixel-icon icon-plane"></span>Telegram</div>
+              <span class="flow-arrow" aria-hidden="true">↓ webhook</span>
+              <div class="diagram-node node-api" aria-hidden="true"><span class="pixel-icon icon-terminal"></span><span>FastAPI<small>Cloudflare Workers</small></span></div>
+              <span class="diagram-branch" aria-hidden="true"></span>
+              <div class="diagram-pair" aria-hidden="true">
+                <div class="diagram-node"><span class="pixel-icon icon-db"></span>D1</div>
+                <div class="diagram-node"><span class="pixel-icon icon-spark"></span>Workers AI</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project-card project-graphs" data-category="dados" aria-labelledby="graphs-titulo">
+          <div class="project-art" aria-hidden="true"><img src="assets/graphs.svg" alt="" width="560" height="160" loading="lazy"><span>01 / PYTHON</span></div>
+          <div class="project-content">
+            <p class="project-meta"><span class="project-kind">DADOS</span><span>PUBLICADO NO PYPI</span></p>
+            <h3 id="graphs-titulo">Simple Graphs</h3>
+            <p class="project-description">Criei e publiquei um pacote Python com utilitários para carregar arquivos em DataFrames e configurar gráficos sem repetir o mesmo código em cada análise.</p>
+            <ul class="tags" aria-label="Tecnologias do Simple Graphs"><li>Python</li><li>Pandas</li><li>Matplotlib</li></ul>
+            <a class="project-link" href="https://pypi.org/project/plotting-dataframes-laranjodupy/" target="_blank" rel="noopener" aria-label="Ver Simple Graphs no PyPI, nova aba">Ver pacote no PyPI <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project project-card project-loja" data-category="dados" aria-labelledby="loja-titulo">
+          <div class="project-art" aria-hidden="true"><img src="assets/database.svg" alt="" width="560" height="160" loading="lazy"><span>02 / SQL</span></div>
+          <div class="project-content">
+            <p class="project-meta"><span class="project-kind">BANCO DE DADOS</span><span>PROJETO EM EQUIPE</span></p>
+            <h3 id="loja-titulo">Loja Rápida</h3>
+            <p class="project-description">Participei da modelagem e da validação de um banco relacional para uma loja. A equipe entregou esquema, dados de exemplo, views, consultas e transações.</p>
+            <ul class="tags" aria-label="Tecnologias da Loja Rápida"><li>PostgreSQL</li><li>PL/pgSQL</li></ul>
+            <a class="project-link" href="https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech" target="_blank" rel="noopener" aria-label="Ver código da Loja Rápida no GitHub, nova aba">Ver código no GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project project-card project-alunos" data-category="fullstack" aria-labelledby="alunos-titulo">
+          <div class="project-art" aria-hidden="true"><img src="assets/students.svg" alt="" width="560" height="160" loading="lazy"><span>03 / WEB</span></div>
+          <div class="project-content">
+            <p class="project-meta"><span class="project-kind">FULL STACK</span><span>PROJETO EM EQUIPE</span></p>
+            <h3 id="alunos-titulo">Gestão de Alunos</h3>
+            <p class="project-description">Desenvolvi em equipe uma aplicação para cadastrar, consultar, atualizar e excluir registros de alunos. A entrega incluiu validação na API e um painel de estatísticas.</p>
+            <ul class="tags" aria-label="Tecnologias da Gestão de Alunos"><li>React</li><li>Node.js</li><li>Express</li></ul>
+            <a class="project-link" href="https://github.com/laranjodupy/stalkerdeAluno_JovemTech" target="_blank" rel="noopener" aria-label="Ver código da Gestão de Alunos no GitHub, nova aba">Ver código no GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about-section" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="wrap section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="section-number">02</span> / PERFIL</p>
+            <h2 id="sobre-titulo">Sobre mim<span>.</span></h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="profile-panel">
+            <p class="panel-label"><span aria-hidden="true">▸</span> COMO TRABALHO</p>
+            <p class="about-copy">Gosto de acompanhar um projeto da modelagem dos dados até a interface. Uso Python para automatizar tarefas e explorar dados, e JavaScript para criar aplicações web e integrar APIs.</p>
+            <ul class="practice-list">
+              <li><span>Dados e IA</span><span>Python, Pandas, Matplotlib, MediaPipe</span></li>
+              <li><span>Web e APIs</span><span>JavaScript, React, Express, FastAPI</span></li>
+              <li><span>Dados e infra</span><span>PostgreSQL, Supabase, Cloudflare Workers, Git</span></li>
+            </ul>
+          </div>
+
+          <div class="profile-panel">
+            <p class="panel-label"><span aria-hidden="true">▸</span> FORMAÇÃO</p>
+            <ul class="education-list">
+              <li><span class="education-marker" aria-hidden="true"></span><div><h3>Ciência da Computação</h3><p>Estácio · Graduação em andamento</p></div><span class="education-date">2026–2030 <small>(prev.)</small></span></li>
+              <li><span class="education-marker" aria-hidden="true"></span><div><h3>Desenvolvimento Full Stack</h3><p>Jovem Tech / Conecta-SE · Formação concluída</p></div><span class="education-date">2026</span></li>
+              <li><span class="education-marker" aria-hidden="true"></span><div><h3>Técnico em Eletroeletrônica</h3><p>SENAI/CETAF · Formação concluída</p></div><span class="education-date">2025</span></li>
+            </ul>
+            <p class="languages">Português nativo · Inglês intermediário · Francês básico</p>
+          </div>
+        </div>
+
+        <div class="profile-proof">
+          <section class="proof-box certificates" id="certificados" aria-labelledby="certificados-titulo">
+            <h3 id="certificados-titulo">Certificados</h3>
+            <div class="certificate-groups">
+              <div class="certificate-group">
+                <h4>Dados e BI</h4>
+                <ul>
+                  <li><a href="componentes/Certificado_DS_Essentials_Daniel.pdf" target="_blank" rel="noopener">Data Science Essentials with Python <span aria-hidden="true">↗</span><small>Cisco Networking Academy</small></a></li>
+                  <li><a href="componentes/certificados/analise-de-dados-com-sql.pdf" target="_blank" rel="noopener">Introdução à Análise de Dados com SQL <span aria-hidden="true">↗</span><small>DIO</small></a></li>
+                  <li><a href="componentes/certificados/fundamentos-etl.pdf" target="_blank" rel="noopener">Fundamentos Teóricos sobre ETL <span aria-hidden="true">↗</span><small>DIO</small></a></li>
+                  <li><a href="componentes/certificados/fundamentos-bi.pdf" target="_blank" rel="noopener">Fundamentos de Business Intelligence (BI) <span aria-hidden="true">↗</span><small>DIO</small></a></li>
+                </ul>
+              </div>
+              <div class="certificate-group">
+                <h4>IA e automação</h4>
+                <ul>
+                  <li><a href="componentes/certificados/aceleracao-rag.pdf" target="_blank" rel="noopener">RAG com ChromaDB, LlamaIndex e Python <span aria-hidden="true">↗</span><small>DIO / Santander · Aceleração</small></a></li>
+                  <li><a href="componentes/certificados/ai-automation-n8n.pdf" target="_blank" rel="noopener">AI Automation com N8N <span aria-hidden="true">↗</span><small>DIO · Bootcamp</small></a></li>
+                </ul>
+              </div>
+              <div class="certificate-group">
+                <h4>Full stack e segurança</h4>
+                <ul>
+                  <li><a href="componentes/Certificado_Jovem_tech.jpeg" target="_blank" rel="noopener">Desenvolvedor Júnior Full Stack <span aria-hidden="true">↗</span><small>Jovem Tech</small></a></li>
+                  <li><a href="componentes/I2CS_Daniel.pdf" target="_blank" rel="noopener">Introduction to Cybersecurity <span aria-hidden="true">↗</span><small>Cisco Networking Academy</small></a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <div class="proof-box">
+            <h3>Experiências em equipe</h3>
+            <ul class="team-experiences">
+              <li><strong>Arcum Tech · F1 in Schools</strong><small>Atuei em manufatura na equipe que representou Sergipe na competição.</small></li>
+              <li><strong>Photodot · Cienart</strong><small>Apresentei o projeto pelo SESI/CEFEM. A equipe conquistou medalha de ouro.</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section wrap" id="contato" aria-labelledby="contato-titulo">
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow"><span class="section-number">03</span> / CONTATO</p>
+          <h2 id="contato-titulo">Vamos conversar<span>?</span></h2>
+          <p>Busco oportunidades de estágio e vagas júnior em dados, IA ou desenvolvimento full stack.</p>
+          <div class="contact-links">
+            <a class="button button-primary" href="mailto:vianalimadaniel@gmail.com">Enviar e-mail <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/dev-danielvianalima/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="https://github.com/laranjodupy" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <a class="email-address" href="mailto:vianalimadaniel@gmail.com">vianalimadaniel@gmail.com</a>
+        </div>
+        <div class="contact-stamp" aria-hidden="true">
+          <img src="assets/favicon.svg" alt="" width="96" height="96" loading="lazy">
+          <span>TRANSMISSÃO ABERTA</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Daniel Viana Lima <span class="footer-divider">/</span> Sergipe, BR</span>
+      <a href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</body>
+</html>
