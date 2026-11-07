@@ -12,7 +12,7 @@ Graduando em Ciência da Computação na Estácio, em Sergipe. Uso Python para t
 
 [Projetos](#projetos-selecionados) · [Portfólio e currículo](https://danielviana-portfolioweb.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/dev-danielvianalima/) · [E-mail](mailto:vianalimadaniel@gmail.com)
 
-## 🎮 Sobre mim · `player_status.py`
+##  Sobre mim · `player_status.py`
 
 ```python
 class Daniel:
@@ -42,7 +42,7 @@ class Daniel:
 
 > Seja estudando física ou lendo código, gosto de seguir a lógica até conseguir explicar por que as coisas funcionam.
 
-## 🧰 Hard skills · `skills.ini`
+## Hard skills · `skills.ini`
 
 <p align="center">
   <img src="./assets/readme-stack.png" width="522" alt="Badges de Python, TypeScript, JavaScript, C#, C++, C, HTML, CSS, React, Supabase, PostgreSQL, Git e GitHub, Cloudflare, FastAPI e n8n.">
@@ -69,7 +69,7 @@ class Daniel:
 
 ## Projetos selecionados
 
-<sub>📂 <code>quest_log.md</code></sub>
+<sub> <code>quest_log.md</code></sub>
 
 | Projeto | O que entreguei |
 | --- | --- |
@@ -78,7 +78,7 @@ class Daniel:
 | [**Loja Rápida**](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech) | Participei da modelagem e validação de um banco de dados para uma loja. A equipe entregou esquema, dados de exemplo, views, consultas e transações.<br><sub>PostgreSQL · PL/pgSQL</sub> |
 | [**Gestão de Alunos**](https://github.com/laranjodupy/stalkerdeAluno_JovemTech) | Desenvolvi em equipe uma aplicação de cadastro com validação na API e um painel de estatísticas.<br><sub>React · Node.js · Express</sub> |
 
-## 🏆 Formação e certificados · `achievements.log`
+## Formação e certificados · `achievements.log`
 
 <details>
 <summary><strong>Ver formação e cursos concluídos</strong></summary>
@@ -99,7 +99,7 @@ O site usa HTML, CSS e JavaScript. Clone este repositório e abra `index.html` n
 
 </details>
 
-## 🐍 Atividade no GitHub · `git log`
+## Atividade no GitHub · `git log`
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg">
