@@ -24,7 +24,7 @@ class Daniel:
     def idiomas(self):
         return {
             "Português": "Nativo",
-            "Inglês": "Intermediário",
+            "Inglês": "B2 Independente (EF SET)",
             "Espanhol": "Básico",
             "Francês": "Básico",
         }
@@ -91,6 +91,7 @@ class Daniel:
 - **Cisco Networking Academy** · [Data Science Essentials with Python](./componentes/Certificado_DS_Essentials_Daniel.pdf) e [Introduction to Cybersecurity](./componentes/I2CS_Daniel.pdf).
 - **DIO** · Introdução à Análise de Dados com SQL, Fundamentos Teóricos sobre ETL, Fundamentos de Business Intelligence e bootcamp AI Automation com N8N.
 - **DIO / Santander** · Aceleração em RAG com ChromaDB, LlamaIndex e Python.
+- **EF SET** · [Certificado de inglês B2 Independente](./componentes/certificados/ef-set-ingles-b2.pdf).
 
 </details>
 
