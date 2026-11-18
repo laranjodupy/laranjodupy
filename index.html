@@ -12,13 +12,12 @@
   <title>Daniel Viana Lima · Portfólio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="effects.css">
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="effects.css?v=2">
   <script src="script.js" defer></script>
-  <script src="effects.js" defer></script>
+  <script src="effects.js?v=2" defer></script>
 </head>
 <body id="inicio">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div class="terminal-background" aria-hidden="true">
     <canvas id="terminal-canvas"></canvas>
     <div class="terminal-grid"></div>
@@ -38,13 +37,17 @@
         <a href="#contato">Contato</a>
       </nav>
       <div class="header-tools">
-        <button class="effects-toggle" type="button" aria-pressed="false" hidden>Animar efeitos</button>
+        <button class="effects-toggle" type="button" aria-label="Animações" aria-pressed="false" hidden>
+          <span class="effects-led" aria-hidden="true"></span>
+          <span>Animações <strong class="effects-state">DESATIVADAS</strong></span>
+        </button>
         <a class="header-resume" href="componentes/curriculo_DEV_Daniel_Viana.pdf" target="_blank" rel="noopener" aria-label="Abrir currículo em PDF, nova aba">
           Currículo <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
   </header>
+  <p class="effects-feedback" role="status" aria-live="polite" hidden></p>
 
   <main id="conteudo" tabindex="-1">
     <section class="hero" aria-labelledby="titulo">
@@ -105,6 +108,35 @@
       <p id="filter-status" class="sr-only" role="status"></p>
 
       <div class="projects-grid">
+        <article class="project project-card project-spotlight project-flamelab" data-category="dados" aria-labelledby="flamelab-titulo">
+          <div class="project-cover" aria-hidden="true">
+            <p class="project-cover-flow"><span>NASA PSI</span><b>→</b><span>ETL</span><b>→</b><span>SUPABASE</span></p>
+          </div>
+          <div class="project-content">
+            <p class="project-meta"><span class="project-kind">DADOS E IA</span><span>PROJETO EM EQUIPE</span></p>
+            <h3 id="flamelab-titulo">FlameLab</h3>
+            <p class="project-event">NASA Space Apps Challenge 2026</p>
+            <p class="project-summary">Plataforma para explorar e comparar experimentos da NASA sobre combustão espacial.</p>
+            <p class="project-description">Atuei como <strong>engenheiro de dados</strong>. Liderei a mineração, o tratamento e a estruturação dos dados do NASA PSI. Desenvolvi pipelines ETL e organizei quatro investigações em PostgreSQL/Supabase, preservando a rastreabilidade das fontes e preparando os dados para buscas com IA e visualizações interativas que apoiam estudos de segurança contra incêndios.</p>
+            <ul class="tags" aria-label="Tecnologias do FlameLab"><li>Python</li><li>PostgreSQL</li><li>Supabase</li><li>SQL</li><li>ETL</li><li>NASA PSI</li></ul>
+            <a class="project-link" href="https://projectflamelab.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir FlameLab, nova aba">Abrir FlameLab <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project project-card project-spotlight project-tray" data-category="fullstack dados" aria-labelledby="tray-titulo">
+          <div class="project-cover" aria-hidden="true">
+            <p class="project-cover-flow"><span>WHATSAPP</span><b>→</b><span>IA</span><b>→</b><span>REVISÃO</span></p>
+          </div>
+          <div class="project-content">
+            <p class="project-meta"><span class="project-kind">FULL STACK · IA E AUTOMAÇÃO</span><span>PROTÓTIPO DE HACKATHON</span></p>
+            <h3 id="tray-titulo">Tray Balcão</h3>
+            <p class="project-summary">Aplicação web para pequenos comerciantes organizarem produtos e transformarem conversas do WhatsApp em pedidos.</p>
+            <p class="project-description">Desenvolvi um protótipo que usa IA para extrair informações de textos, áudios e imagens e sugerir cadastros que o lojista revisa antes de publicar. A aplicação reúne catálogo, conversas, reserva de estoque e checkout de demonstração, com autenticação e persistência no Supabase.</p>
+            <ul class="tags" aria-label="Tecnologias do Tray Balcão"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>n8n</li><li>Cloudflare Workers AI</li><li>Evolution API</li></ul>
+            <a class="project-link" href="https://operacao-sos-telinha.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir Tray Balcão, nova aba">Abrir Tray Balcão <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
         <article class="project project-featured" data-category="dados fullstack" aria-labelledby="laranbot-titulo">
           <div class="project-content">
             <p class="project-meta"><span class="flag"><span aria-hidden="true">✦</span> DESTAQUE</span><span>PROJETO AUTORAL</span></p>

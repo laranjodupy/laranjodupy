@@ -2,6 +2,8 @@
   const root = document.documentElement;
   const canvas = document.querySelector('#terminal-canvas');
   const toggle = document.querySelector('.effects-toggle');
+  const toggleState = toggle.querySelector('.effects-state');
+  const feedback = document.querySelector('.effects-feedback');
   const heroWindow = document.querySelector('.hero-window');
   const context = canvas.getContext('2d');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -11,7 +13,8 @@
   const storageKey = 'laranjo-animations';
   const commands = ['$ python pipeline.py', '> loading modules_', '$ git status', '> ready to explore_'];
   const glyphs = '01<>/{}[]:=+';
-  let paused = false;
+  let preference = null;
+  let feedbackTimer = 0;
   let frameId = 0;
   let layoutFrame = 0;
   let lastTime = 0;
@@ -23,13 +26,15 @@
   let columns = [];
 
   try {
-    paused = localStorage.getItem(storageKey) === 'paused';
+    const saved = localStorage.getItem(storageKey);
+    if (saved === 'paused') preference = false;
+    if (saved === 'running') preference = true;
   } catch {
     // The visual preference also works when browser storage is unavailable.
   }
 
   function motionEnabled() {
-    return !paused && !reducedMotion.matches;
+    return preference ?? !reducedMotion.matches;
   }
 
   function updatePagePosition() {
@@ -94,7 +99,7 @@
 
     for (const route of routes) {
       const offset = progress * (route.orange ? -38 : 42);
-      context.strokeStyle = route.orange ? '#d09b5e29' : '#5aa77c32';
+      context.strokeStyle = route.orange ? '#d09b5e70' : '#5aa77c80';
       context.beginPath();
       route.points.forEach(([x, y], index) => {
         if (index === 0) context.moveTo(x, y + offset);
@@ -110,31 +115,31 @@
         const length = Math.abs(x1 - x0) + Math.abs(y1 - y0);
         if (remaining <= length) {
           const fraction = remaining / length;
-          context.fillStyle = route.orange ? '#efa466b0' : '#7edbab96';
-          context.fillRect(Math.round(x0 + (x1 - x0) * fraction), Math.round(y0 + (y1 - y0) * fraction + offset), 3, 3);
+          context.fillStyle = route.orange ? '#ffc08b' : '#91efb7';
+          context.fillRect(Math.round(x0 + (x1 - x0) * fraction), Math.round(y0 + (y1 - y0) * fraction + offset), 4, 4);
           break;
         }
         remaining -= length;
       }
 
       const [nodeX, nodeY] = route.points[route.points.length - 1];
-      context.fillStyle = '#71bf8c42';
+      context.fillStyle = '#71bf8c90';
       context.fillRect(nodeX - 2, nodeY + offset - 2, 4, 4);
     }
 
-    context.font = '11px monospace';
+    context.font = '12px monospace';
     for (const column of columns) {
       const top = (column.start + clock * column.speed + progress * 60) % (height + 200) - 150;
       column.characters.forEach((character, index) => {
-        context.fillStyle = index === 9 ? '#8be5ae63' : '#4c9c7040';
+        context.fillStyle = index === 9 ? '#a1f4c0d0' : '#64bb8890';
         context.fillText(character, column.x, Math.round(top + index * 17));
       });
     }
 
     context.font = '10px monospace';
-    context.fillStyle = '#70bd945e';
+    context.fillStyle = '#70bd94b0';
     context.fillText(commands[Math.floor(clock / 6) % commands.length], 22, height - 36);
-    context.fillStyle = '#b9936060';
+    context.fillStyle = '#b99360a0';
     context.fillText('0x' + Math.floor(progress * 4095).toString(16).padStart(3, '0').toUpperCase(), Math.max(20, width - 65), 95);
   }
 
@@ -156,29 +161,34 @@
     const enabled = motionEnabled();
     root.dataset.effects = enabled ? 'running' : 'paused';
     toggle.hidden = false;
-    toggle.disabled = reducedMotion.matches;
     toggle.setAttribute('aria-pressed', String(enabled));
-    toggle.setAttribute('aria-label', 'Animações');
-    toggle.textContent = reducedMotion.matches ? 'FX reduzidos' : 'FX ' + (enabled ? 'ON' : 'OFF');
-    toggle.title = reducedMotion.matches ? 'A preferência de movimento reduzido do sistema está ativa.' : (enabled ? 'Pausar animações' : 'Ativar animações');
+    toggleState.textContent = enabled ? 'ATIVADAS' : 'DESATIVADAS';
+    toggle.title = enabled ? 'Desativar animações' : 'Ativar animações';
+    if (preference === null && reducedMotion.matches) {
+      toggle.title = 'Movimento reduzido do sistema. Clique para ativar as animações neste site.';
+    }
+    if (context) renderBackground();
 
     if (enabled && !document.hidden && context) {
       lastTime = performance.now();
       frameId = requestAnimationFrame(tick);
     } else {
       document.querySelectorAll('.click-sparks').forEach((burst) => burst.remove());
-      if (context) context.clearRect(0, 0, width, height);
     }
   }
 
   toggle.addEventListener('click', () => {
-    paused = !paused;
+    preference = !motionEnabled();
     try {
-      localStorage.setItem(storageKey, paused ? 'paused' : 'running');
+      localStorage.setItem(storageKey, preference ? 'running' : 'paused');
     } catch {
       // The button remains usable without saving this preference.
     }
     syncMotion();
+    clearTimeout(feedbackTimer);
+    feedback.textContent = preference ? 'Animações ativadas.' : 'Animações desativadas. O fundo está parado.';
+    feedback.hidden = false;
+    feedbackTimer = setTimeout(() => { feedback.hidden = true; }, 3200);
   });
   reducedMotion.addEventListener('change', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
@@ -188,7 +198,7 @@
     resizeBackground();
     syncMotion();
   });
-  new ResizeObserver(schedulePagePosition).observe(document.body);
+  if ('ResizeObserver' in window) new ResizeObserver(schedulePagePosition).observe(document.body);
 
   document.addEventListener('pointermove', (event) => {
     if (!finePointer.matches || !motionEnabled()) return;
@@ -237,9 +247,11 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -24px 0px', threshold: .05 });
+    }, { rootMargin: '0px 0px -56px 0px', threshold: .12 });
 
     document.querySelectorAll('.section-heading, .project, .profile-panel, .proof-box, .contact-panel').forEach((element) => {
+      const siblings = [...element.parentElement.children];
+      element.style.setProperty('--reveal-delay', Math.min(siblings.indexOf(element), 3) * 90 + 'ms');
       element.classList.add('reveal-ready');
       observer.observe(element);
     });

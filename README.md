@@ -73,6 +73,8 @@ class Daniel:
 
 | Projeto | O que entreguei |
 | --- | --- |
+| [**FlameLab**](https://projectflamelab.vercel.app/) | No NASA Space Apps Challenge 2026, liderei o trabalho de engenharia de dados. Desenvolvi pipelines ETL e organizei quatro investigações de combustão espacial do NASA PSI, com rastreabilidade das fontes para buscas com IA e visualizações.<br><sub>Python · PostgreSQL · Supabase · SQL · ETL · NASA PSI</sub> |
+| [**Tray Balcão**](https://operacao-sos-telinha.vercel.app/) | Desenvolvi um protótipo de hackathon para organizar produtos e converter conversas do WhatsApp em pedidos. A IA extrai dados de textos, áudios e imagens para revisão do lojista antes da publicação. Inclui catálogo, reserva de estoque e checkout de demonstração.<br><sub>Next.js · TypeScript · Supabase · n8n · Cloudflare Workers AI · Evolution API</sub> |
 | [**LaranBot**](https://github.com/laranjodupy/LaranBotDev_Telegram) | Criei um template para bots do Telegram com webhook, banco D1 e integração com Workers AI. Documentei a configuração local, as migrações e o deploy.<br><sub>Python · FastAPI · Cloudflare Workers</sub> |
 | [**Simple Graphs**](https://github.com/laranjodupy/plotting-dataframes) | Publiquei no [PyPI](https://pypi.org/project/plotting-dataframes-laranjodupy/) um pacote para carregar arquivos em DataFrames e configurar gráficos com menos código repetido.<br><sub>Python · Pandas · Matplotlib</sub> |
 | [**Loja Rápida**](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech) | Participei da modelagem e validação de um banco de dados para uma loja. A equipe entregou esquema, dados de exemplo, views, consultas e transações.<br><sub>PostgreSQL · PL/pgSQL</sub> |
@@ -95,7 +97,7 @@ class Daniel:
 <details>
 <summary><strong>Rodar o portfólio localmente</strong></summary>
 
-O site usa HTML, CSS e JavaScript. Os efeitos de terminal, rolagem, clique e hover ficam em `effects.js` e `effects.css`. O botão **FX ON / OFF** pausa as animações e salva sua preferência. A preferência de movimento reduzido do sistema também é respeitada.
+O site usa HTML, CSS e JavaScript. Os efeitos de terminal, rolagem, clique e hover ficam em `effects.js` e `effects.css`. O botão **Animações ATIVADAS / DESATIVADAS** mostra o estado, confirma cada mudança e salva sua preferência. Ao desativar, o fundo continua visível e parado. O movimento reduzido do sistema define o estado inicial, e o botão permite ativar as animações explicitamente.
 
 Clone este repositório e abra `index.html` no navegador. Para servir a pasta pelo terminal no Windows, execute `py -m http.server 8000` na raiz e abra [localhost:8000](http://localhost:8000).
 
