@@ -1,251 +1,110 @@
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=blur&color=0:1a1a2e,50:2b2b40,100:1a1a2e&height=140&section=header&text=DANIEL%20VIANA%20LIMA&fontColor=F7D51D&fontSize=42&fontAlignY=45&animation=fadeIn&desc=%3E%20PYTHON.EXE%20HAS%20LOADED%20A%20NEW%20PLAYER&descAlignY=68&descSize=15&descColor=6EC1E4" width="100%" />
-
-<br/>
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=18&duration=3000&pause=1200&color=F7D51D&background=00000000&center=true&vCenter=true&width=650&height=60&lines=OL%C3%81%2C+EU+SOU+O+DANIEL;19+ANOS+%7C+DEV+%2B+CI%C3%8ANCIA;PYTHON+%7C+IA+%7C+DADOS+%7C+LLM;PLAYER+1+READY)](https://git.io/typing-svg)
-
-</div>
-
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=laranjodupy&label=VISITANTES&color=6EC1E4&style=for-the-badge&labelColor=1a1a2e" alt="Contador de visitas" />
-  <a href="https://github.com/laranjodupy?tab=followers"><img src="https://img.shields.io/github/followers/laranjodupy?label=SEGUIDORES&style=for-the-badge&color=F7D51D&labelColor=1a1a2e&logo=github&logoColor=F7D51D" alt="Seguidores" /></a>
-  <a href="https://github.com/laranjodupy?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/laranjodupy?label=STARS&style=for-the-badge&color=6EC1E4&labelColor=1a1a2e&logo=github&logoColor=6EC1E4" alt="Stars" /></a>
+  <a href="https://danielviana-portfolioweb.vercel.app/">
+    <img src="./assets/readme-terminal.png" width="100%" alt="Laranjo Lab em pixel art, com um computador retrô ligado ao entardecer. Abrir portfólio.">
+  </a>
 </p>
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" height="4" alt="" />
-</div>
+# Daniel Viana Lima
 
-<br/>
+**Dados, IA e desenvolvimento full stack**
 
-## 🎮 SOBRE MIM — `player_status.py`
+Graduando em Ciência da Computação na Estácio, em Sergipe. Uso Python para trabalhar com dados e automação, e JavaScript para construir aplicações web e integrar APIs. Busco oportunidades de **estágio ou vaga júnior**.
+
+[Projetos](#projetos-selecionados) · [Portfólio e currículo](https://danielviana-portfolioweb.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/dev-danielvianalima/) · [E-mail](mailto:vianalimadaniel@gmail.com)
+
+## 🎮 Sobre mim · `player_status.py`
 
 ```python
 class Daniel:
-    def __init__(self):
-        self.nome     = "Daniel Viana Lima"
-        self.idade    = 19
-        self.local    = "Brasil"
-        self.objetivo = "Estágio em Ciência da Computação"
-        self.foco     = ["IA", "Dados", "LLM", "Automação de Software"]
+    local = "Sergipe, Brasil"
+    formacao = "Ciência da Computação · Estácio"
+    buscando = ("Estágio", "Vaga júnior")
+    foco = ("Dados", "IA", "LLMs", "Full stack", "Automação")
 
     def idiomas(self):
         return {
-            "Português Brasileiro": "Nativo",
+            "Português": "Nativo",
             "Inglês": "Intermediário",
             "Espanhol": "Básico",
-            "Francês": "Básico"
+            "Francês": "Básico",
         }
 
-    def hobbies(self):
-        return [
+    def fora_do_terminal(self):
+        return (
             "Física e ciências naturais 🔭",
             "Xadrez ♟️",
-            "Bolar ideias de software que ainda não existem 💡"
-        ]
+            "Bolar ideias de software que ainda não existem 💡",
+        )
 
     def missao_atual(self):
         return "Aprender sempre. Nível não é teto, é checkpoint."
 ```
 
-> Sou apaixonado por tecnologia e ciência, sempre em busca de aprender coisas novas e
-> aprimorar meus conhecimentos em TI — principalmente IA, Dados, LLMs e automação de
-> software. Fora do código, gosto de entender como o universo funciona (física acima
-> de tudo), jogar xadrez e imaginar ideias de software que ainda não existem.
+> Seja estudando física ou lendo código, gosto de seguir a lógica até conseguir explicar por que as coisas funcionam.
 
-<br/>
-
-## HARD SKILLS
+## 🧰 Hard skills · `skills.ini`
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PYTHON-F7D51D?style=for-the-badge&logo=python&logoColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/TYPESCRIPT-6EC1E4?style=for-the-badge&logo=typescript&logoColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/JAVASCRIPT-F7D51D?style=for-the-badge&logo=javascript&logoColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/C%23-9B4F96?style=for-the-badge&logo=csharp&logoColor=white" />
-  <img src="https://img.shields.io/badge/C++-004482?style=for-the-badge&logo=cplusplus&logoColor=white" />
-  <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=1a1a2e" />
-  <br/>
-  <img src="https://img.shields.io/badge/HTML5-E44D26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-6EC1E4?style=for-the-badge&logo=css3&logoColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/REACT.JS-61DAFB?style=for-the-badge&logo=react&logoColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/SUPABASE-3ECF8E?style=for-the-badge&logo=supabase&logoColor=1a1a2e" />
-  <img src="https://img.shields.io/badge/POSTGRESQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <br/>
-  <img src="https://img.shields.io/badge/GIT%20%2B%20GITHUB-F05032?style=for-the-badge&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/CLOUDFLARE-F87930?style=for-the-badge&logo=cloudflare&logoColor=white" />
-  <img src="https://img.shields.io/badge/NO--CODE%20%2F%20LOW--CODE-8B5CF6?style=for-the-badge&logo=zapier&logoColor=white" />
+  <img src="./assets/readme-stack.png" width="522" alt="Badges de Python, TypeScript, JavaScript, C#, C++, C, HTML, CSS, React, Supabase, PostgreSQL, Git e GitHub, Cloudflare, FastAPI e n8n.">
 </p>
 
-<div align="center">
+<sub>Barras de XP · Minha autoavaliação de prática.</sub>
 
-  
-</div>
-
-<table align="center">
-<tr>
-<td width="50%">
-
-**PYTHON** `███████░░░` 7/10
-Tratamento de dados, ChatBots e Computer Vision.
-
-**TYPESCRIPT** `████░░░░░░` 4/10
-Tipagem forte aplicada a projetos React.
-
-**JAVASCRIPT** `█████░░░░░` 5/10
-Lógica de programação, manipulação DOM.
-
-**REACT.JS** `████░░░░░░` 4/10
-Componentes, hooks e interfaces reativas.
-
-</td>
-<td width="50%">
-
-**SUPABASE** `███░░░░░░░` 3/10
-Criação, auth e banco em tempo real.
-
-**POSTGRESQL** `███░░░░░░░` 3/10
-Banco relacional, queries SQL.
-
-**C++** `██░░░░░░░░` 2/10
-Aplicação da linguagem com Arduino.
-
-**C#** `███░░░░░░░` 3/10
-Lógica de programação orientada a objetos.
-
-</td>
-</tr>
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <p><strong>Python</strong> <code>███████░░░</code> <strong>7/10</strong><br>Tratamento de dados, bots e APIs.</p>
+      <p><strong>TypeScript</strong> <code>████░░░░░░</code> <strong>4/10</strong><br>Tipagem em projetos React.</p>
+      <p><strong>JavaScript</strong> <code>█████░░░░░</code> <strong>5/10</strong><br>DOM, interfaces e APIs com Node.js.</p>
+      <p><strong>React</strong> <code>████░░░░░░</code> <strong>4/10</strong><br>Componentes, hooks e interfaces.</p>
+    </td>
+    <td width="50%" valign="top">
+      <p><strong>Supabase</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Autenticação e dados em tempo real.</p>
+      <p><strong>PostgreSQL</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Modelagem relacional e consultas SQL.</p>
+      <p><strong>C++</strong> <code>██░░░░░░░░</code> <strong>2/10</strong><br>Aplicações com Arduino.</p>
+      <p><strong>C#</strong> <code>███░░░░░░░</code> <strong>3/10</strong><br>Programação orientada a objetos.</p>
+    </td>
+  </tr>
 </table>
 
-<br/>
+## Projetos selecionados
 
-## 🏆 CONQUISTAS DESBLOQUEADAS
+<sub>📂 <code>quest_log.md</code></sub>
 
-<table align="center">
-<tr>
-<td align="center" width="33%">
+| Projeto | O que entreguei |
+| --- | --- |
+| [**LaranBot**](https://github.com/laranjodupy/LaranBotDev_Telegram) | Criei um template para bots do Telegram com webhook, banco D1 e integração com Workers AI. Documentei a configuração local, as migrações e o deploy.<br><sub>Python · FastAPI · Cloudflare Workers</sub> |
+| [**Simple Graphs**](https://github.com/laranjodupy/plotting-dataframes) | Publiquei no [PyPI](https://pypi.org/project/plotting-dataframes-laranjodupy/) um pacote para carregar arquivos em DataFrames e configurar gráficos com menos código repetido.<br><sub>Python · Pandas · Matplotlib</sub> |
+| [**Loja Rápida**](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech) | Participei da modelagem e validação de um banco de dados para uma loja. A equipe entregou esquema, dados de exemplo, views, consultas e transações.<br><sub>PostgreSQL · PL/pgSQL</sub> |
+| [**Gestão de Alunos**](https://github.com/laranjodupy/stalkerdeAluno_JovemTech) | Desenvolvi em equipe uma aplicação de cadastro com validação na API e um painel de estatísticas.<br><sub>React · Node.js · Express</sub> |
 
-🎓<br/>**Data Science Essentials<br/>with Python**
-<br/><sub>Cisco Networking Academy</sub>
+## 🏆 Formação e certificados · `achievements.log`
 
-[Ver certificado ↗](./componentes/Certificado_DS_Essentials_Daniel.pdf)
+<details>
+<summary><strong>Ver formação e cursos concluídos</strong></summary>
 
-</td>
-<td align="center" width="33%">
+- **Estácio** · Ciência da Computação, em andamento.
+- **Jovem Tech / Conecta-SE** · [Formação em Desenvolvimento Full Stack](./componentes/Certificado_Jovem_tech.jpeg).
+- **SENAI/CETAF** · Técnico em Eletroeletrônica.
+- **Cisco Networking Academy** · [Data Science Essentials with Python](./componentes/Certificado_DS_Essentials_Daniel.pdf) e [Introduction to Cybersecurity](./componentes/I2CS_Daniel.pdf).
+- **DIO** · Introdução à Análise de Dados com SQL, Fundamentos Teóricos sobre ETL, Fundamentos de Business Intelligence e bootcamp AI Automation com N8N.
+- **DIO / Santander** · Aceleração em RAG com ChromaDB, LlamaIndex e Python.
 
-🔐<br/>**Introduction to<br/>Cybersecurity**
-<br/><sub>Cisco Networking Academy</sub>
+</details>
 
-[Ver certificado ↗](./componentes/I2CS_Daniel.pdf)
+<details>
+<summary><strong>Rodar o portfólio localmente</strong></summary>
 
-</td>
-<td align="center" width="33%">
+O site usa HTML, CSS e JavaScript. Os efeitos de terminal, rolagem, clique e hover ficam em `effects.js` e `effects.css`. O botão **FX ON / OFF** pausa as animações e salva sua preferência. A preferência de movimento reduzido do sistema também é respeitada.
 
-💻<br/>**Desenvolvedor Júnior<br/>Full Stack**
-<br/><sub>Instituto de Inovação de Sergipe · Jovem Tech</sub>
+Clone este repositório e abra `index.html` no navegador. Para servir a pasta pelo terminal no Windows, execute `py -m http.server 8000` na raiz e abra [localhost:8000](http://localhost:8000).
 
-[Ver certificado ↗](./componentes/Certificado_Jovem_tech.jpeg)
+</details>
 
-</td>
-</tr>
-</table>
-
-<br/>
-
-## QUEST LOG — PROJETOS EM DESTAQUE
-
-<table align="center">
-<tr>
-<td width="50%" valign="top">
-
-### 🌐 Portfólio Pessoal
-**[Laranjo_Portfolio](https://danielviana-portfolioweb.vercel.app/)**
-
-Portfólio retrô-pixelado construído do zero com HTML, CSS e JavaScript puros — bordas
-pixeladas animadas, barras de progresso estilo RPG e tema inspirado em jogos 8-bit.
-
-`HTML` `CSS` `JavaScript`
-
-</td>
-<td width="50%" valign="top">
-
-### 🗃️ Loja Rápida — Banco de Dados
-**[Projeto_LojaRapida_JovemTech](https://github.com/laranjodupy/Projeto_LojaRapida_JovemTech)**
-
-Criação e modelagem de um banco de dados relacional para um sistema de loja,
-com foco em queries e estrutura de dados em PL/pgSQL.
-
-`PostgreSQL` `PL/pgSQL`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🍊 LaranBot — Boilerplate de ChatBot
-**[LaranBotDev_Telegram](https://github.com/laranjodupy/LaranBotDev_Telegram)**
-
-Template pra chatbot no Telegram rodando em **Cloudflare Workers (Python) + FastAPI**
-via ponte ASGI. Webhook, comandos com botões inline, banco **D1** versionado por
-migrations, e IA rodando na própria infra da Cloudflare (Workers AI) — sem chave
-externa. README-tutorial completo, do zero ao deploy.
-
-`Python` `FastAPI` `Cloudflare Workers` `D1`
-
-</td>
-<td width="50%" valign="top">
-
-### 🎓 Gestão de Alunos
-**[stalkerdeAluno_JovemTech](https://github.com/laranjodupy/stalkerdeAluno_JovemTech)**
-
-Sistema voltado à gestão de alunos, desenvolvido em equipe como projeto final de módulo.
-
-`JavaScript` `React`
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-<div align="center">
+## 🐍 Atividade no GitHub · `git log`
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake.svg" />
-  <img alt="cobrinha comendo o gráfico de contribuições" src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake.svg">
+  <img src="https://raw.githubusercontent.com/laranjodupy/laranjodupy/output/github-snake-dark.svg" width="100%" alt="Cobrinha percorrendo meu gráfico de contribuições no GitHub.">
 </picture>
-
-</div>
-
-<br/>
-
-## HIGH SCORES
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api?username=laranjodupy&show_icons=true&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&icon_color=6EC1E4&text_color=e6e6e6" alt="Estatísticas do GitHub" />
-<img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=laranjodupy&layout=compact&hide_border=true&bg_color=1a1a2e&title_color=F7D51D&text_color=e6e6e6&langs_count=8" alt="Linguagens mais usadas" />
-
-<br/>
-
-<img src="https://streak-stats.demolab.com/?user=laranjodupy&hide_border=true&background=1a1a2e&stroke=F7D51D&ring=6EC1E4&fire=F7D51D&currStreakLabel=F7D51D&sideLabels=e6e6e6&dates=6EC1E4&currStreakNum=e6e6e6&sideNums=e6e6e6" alt="Streak de contribuições" width="60%" />
-
-</div>
-
-<br/>
-
-## CONTATOS
-
-<p align="center">
-  <a href="https://github.com/laranjodupy" target="_blank">
-    <img src="https://img.shields.io/badge/GITHUB-1a1a2e?style=for-the-badge&logo=github&logoColor=F7D51D" />
-  </a>
-</p>
-
-<div align="center">
-  <sub>Feito com 🤓 e algumas noites tarde da madrugada por Daniel Viana Lima</sub>
-</div>
-
-<img src="https://capsule-render.vercel.app/api?type=blur&color=0:1a1a2e,50:2b2b40,100:1a1a2e&height=80&section=footer" width="100%" />
